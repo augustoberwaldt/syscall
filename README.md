@@ -1,4 +1,4 @@
-# Sistema Gerenciamento ed Chamados
+# Sistema de Gerenciamento de Chamados
 
 Este projeto tem como objetivo o desenvolvimento de um sistema WEB para gerenciamento chamados.
 
