@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>SYSCALL </title>
+    <title>SYSCALL | Editar Operador </title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -61,27 +61,38 @@
                           <img src="assets/img/ui-sam.jpg" class="img-circle" width="60">
                       </a>
                   </p>
-                  <h5 class="centered">Marcel Newman</h5>
+                  <h5 class="centered">Augusto Berwaldt</h5>
 
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a href="index.html">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Home</span>
                       </a>
                   </li>
-
-                  <li class="sub-menu">
-                      <a href="usuarios.html" >
+                  <li class="mt">
+                      <a href="chamados.html" >
                           <i class="fa fa-desktop"></i>
-                          <span> Usuários</span>
+                          <span> Chamados</span>
                       </a>
-					  <ul class="sub">
-						<li>
-						    <a href="usuarios.html">Listagem</a>   
-							<a href="usuario_cadastrar.html">Cadastrar</a>
-						</li>
-					  </ul>
-
+                  </li>
+				  <li class="mt">
+                      <a  href="relatorios.html">
+                          <i class="fa fa-file-text"></i>
+                          <span>Relatoriós</span>
+                      </a>
+                  </li>
+				  <li class="mt">
+                      <a href="clientes.html" >
+                          <i class="fa fa-users"></i>
+                          <span> Clientes</span>
+                      </a>
+					
+                  </li>
+                  <li class="mt">
+                      <a class="active"  href="usuarios.html" >
+                          <i class="fa fa-users"></i>
+                          <span> Opeardores</span>
+                      </a>
                   </li>
 
               </ul>
@@ -96,25 +107,31 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Usuários </h3>
+          	<h3><i class="fa fa-angle-right"></i> Operadores </h3>
           	<div class="row mt">
           		<div class="col-lg-12">
                    <div class="form-panel">
-						<h4 class="mb"><i class="fa fa-angle-right"></i> Novo Usuário</h4>
+						<h4 class="mb"><i class="fa fa-angle-right"></i> Novo Operador</h4>
 				        <form class="form-horizontal style-form" method="get">
 							<div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Nome :</label>
 								  <div class="col-sm-8">
-									  <input type="text" class="form-control">
+									  <input type="text" value="Augusto"  class="form-control">
 								  </div>
 							</div>
                             <div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Email :</label>
 								  <div class="col-sm-8">
-									  <input type="text" class="form-control">
+									  <input type="text" value="augusto.berwaldt@gmail.com" class="form-control">
 								  </div>
 							</div>
                             <div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Cliente :</label>
+								  <div class="col-sm-8">
+									  <input type="text" value="Moovin" class="form-control">
+								  </div>
+							</div>
+							<div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Grupo :</label>
 								  <div class="col-sm-8">
 									 <select class="form-control">
