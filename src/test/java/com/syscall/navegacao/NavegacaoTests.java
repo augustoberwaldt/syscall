@@ -25,25 +25,30 @@ public class NavegacaoTests  extends FluentTest {
 	public void loginTest() {
 		goTo(getUrl("login"));
 		assertThat(window().title()).isEqualTo("Syscall - Login");
+		$("#email").fill().with("user");
+		$("#senha").fill().with("senha");
+		$("#entrar").submit();
+		assertThat(window().title()).contains("SYSCALL | Home");
 	}
 
 
 	@Test
-	public void navega_ate_cadastro_operador() {
-		goTo(getUrl("login"));
-		assertThat(window().title()).isEqualTo("Syscall - Login");
-		$("#email").fill().with("user");
-		$("#senha").fill().with("senha");
-		$("#entrar").submit();
+	public void validaNavegacaoCadastro() {
 
+		goTo(getUrl("usuarios"));
+		assertThat(window().title()).contains("SYSCALL | Operadores");
 
-		assertThat(window().title()).contains("Syscall - Sistema de Gerenciamento Chamados");
-		assertThat($("#nav-accordion li .active span")).hasText("Dashboard");
-
-
+		$("#usuario_cadastrar").click();
+		assertThat(window().title()).contains("SYSCALL | Cadastrar Operador");
 	}
 
+	@Test
+	public void validaNavegacaoMesagemCadastro() {
 
+		goTo(getUrl("usuario_cadastrar"));
+		assertThat(window().title()).contains("SYSCALL | Cadastrar Operador");
+		$("#salvar").submit();
 
+	}
 
 }

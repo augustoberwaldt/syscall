@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - Bootstrap Admin Template</title>
+       <title>SYSCALL | Cadastrar Operador</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -56,28 +56,27 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-                 <p class="centered">
+                  <p class="centered">
                       <a href="profile.html">
                           <img src="assets/img/ui-sam.jpg" class="img-circle" width="60">
                       </a>
                   </p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <h5 class="centered">Augusto Berwaldt</h5>
               	  	
                   <li class="mt">
-                      <a  href="index.html">
+                      <a class="active" href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>Home</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a class="active" href="chamados.html" >
+                  <li class="mt">
+                      <a href="usuarios.html" >
                           <i class="fa fa-desktop"></i>
                           <span> Chamados</span>
                       </a>
-					
                   </li>
 				  <li class="mt">
-                      <a  href="relatorios.html">
+                      <a class="active" href="relatorios.html">
                           <i class="fa fa-file-text"></i>
                           <span>Relatoriós</span>
                       </a>
@@ -87,25 +86,13 @@
                           <i class="fa fa-users"></i>
                           <span> Clientes</span>
                       </a>
-					  <ul class="sub">
-						<li>
-						    <a href="clientes.html">Listagem</a>   
-							<a href="clientes_cadastrar.html">Cadastrar</a>
-						</li>
-					  </ul>
-
                   </li>
                   <li class="sub-menu">
                       <a href="usuarios.html" >
                           <i class="fa fa-users"></i>
-                          <span> Usuários</span>
+                          <span> Operadores</span>
                       </a>
-					  <ul class="sub">
-						<li>
-						    <a href="usuarios.html">Listagem</a>   
-							<a href="usuario_cadastrar.html">Cadastrar</a>
-						</li>
-					  </ul>
+				
 
                   </li>
 
@@ -121,56 +108,58 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Novo Chamado </h3>
+          	<h3><i class="fa fa-angle-right"></i> Usuários </h3>
           	<div class="row mt">
+			    <div class="col-lg-12">
+			            <div class="alert alert-success"><b>Sucesso.</b> Dados salvos com successo !</div>	
+				
+				</div>
           		<div class="col-lg-12">
-                    <div class="form-panel">
-                  	   <h4 class="mb"><i class="fa fa-angle-right"></i> Chamado</h4>
-                       <form class="form-horizontal style-form" method="get">
-                          <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Assunto :</label>
-                              <div class="col-sm-8">
-                                  <input type="text" class="form-control">
-                              </div>
-						  </div>
-						  <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Tipo chamado :</label>
-                              <div class="col-sm-8">
-                                  <input type="text" class="form-control">
-                              </div>
-						  </div>
-						  <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Categoria :</label>
-                              <div class="col-sm-8">
-                                  <input type="text" class="form-control">
-                              </div>
-						  </div>
-						  <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Setor :</label>
-                              <div class="col-sm-8">
-                                  <input type="text" class="form-control">
-                              </div>
-						  </div>
-						  <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Prioridade :</label>
-                              <div class="col-sm-8">
-                                   <input type="text" class="form-control">
-                              </div>
-						  </div>
-						   <div class="form-group">
-                              <label class="col-sm-1 col-sm-1 control-label">Prioridade :</label>
-                              <div class="col-sm-8">
-                                  <textarea  rows="5" class="form-control"> </textarea>
-                              </div>
-						  </div>
-						  
-						  <button type="button" class="btn btn-theme03">Salvar</button>
-						  <button type="button" class="btn btn-default">Voltar</button>
-                       </form>  						 
+                   <div class="form-panel">
+						<h4 class="mb"><i class="fa fa-angle-right"></i> Novo Usuário</h4>
+				        <form class="form-horizontal style-form" method="get">
+							<div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Nome :</label>
+								  <div class="col-sm-8">
+									  <input type="text" class="form-control">
+								  </div>
+							</div>
+                            <div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Email :</label>
+								  <div class="col-sm-8">
+									  <input type="text" class="form-control">
+								  </div>
+							</div>
+							<div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Cliente:</label>
+								  <div class="col-sm-8">
+									  <input type="text" class="form-control">
+								  </div>
+							</div>
+                            <div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Grupo :</label>
+								  <div class="col-sm-8">
+									 <select class="form-control">
+									  <option>Administrador</option>
+									  <option>Operador</option>
+									</select>
+								  </div>
+							</div>
+                            <div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Foto :</label>
+								  <div class="col-sm-8">
+									  <input type="file" id="exampleInputFile">
+								  </div>
+							</div> 
+							<a id="salvar" href="usuarios_cadastro_salvo.html" type="button" class="btn btn-theme03">Salvar</a>
+							<a  href="usuarios.html" class="btn btn-default">Voltar</a>
+                        </form>							
+						</div>  
+				    </div>
           		</div>
             </div>
 			
-		</section><! --/wrapper -->
+		</section><!--/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
