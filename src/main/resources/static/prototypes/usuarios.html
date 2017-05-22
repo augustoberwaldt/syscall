@@ -112,18 +112,17 @@
           	<div class="row mt">
           		<div class="col-lg-12">
                     <div class="form-panel">
-                      <form class="form-inline" role="form">
+                      <form  action="usuarios_busca_sem_resultado.html" class="form-inline" role="form">
 						  <div class="col-lg-5">
 							  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-							  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+							  <input type="email" class="form-control"  name="email" id="email" placeholder="Email">
 						  </div>
 						  <div class="col-lg-6">
 							  <label class="sr-only" for="exampleInputPassword2">Cliente</label>
 							  <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Cliente">
 						  </div>
 						  
-							<button type="submit" class="btn btn-info">Buscar</button>
-                                                  
+							<button id="buscar" type="submit" class="btn btn-info">Buscar</button>
 
 					 </form>
           			</div>
@@ -153,8 +152,8 @@
 								<td><span class="label label-info label-mini">Ativo</span></td>
 								<td>
 
-									<a href="usuario_editar.html" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+									<a id="editar_operador" href="usuario_editar.html" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button id="deletar_operador" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDelete"><i class="fa fa-trash-o "></i></button>
 								</td>
 							</tr>
 							<tr>
@@ -169,7 +168,7 @@
 								<td>
 
 									<a href="usuario_editar.html" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+									<a class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
 								</td>
 							</tr>
 							<tr>
@@ -183,7 +182,7 @@
 								<td><span class="label label-danger label-mini">Inativo</span></td>
 								<td>
 									<a href="usuario_editar.html" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+									<a class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
 								</td>
 							</tr>
 							
@@ -222,6 +221,23 @@
             </div>
 			
 		</section><! --/wrapper -->
+		  <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			  <div class="modal-dialog">
+				  <div class="modal-content">
+					  <div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						  <h4 class="modal-title" id="myModalLabel">Remover Operador</h4>
+					  </div>
+					  <div class="modal-body">
+						  Tem certeza que deseja excluir esse registro ?
+					  </div>
+					  <div class="modal-footer">
+						  <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+						  <button type="button" class="btn btn-primary">Confirmar</button>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->

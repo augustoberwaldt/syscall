@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>SYSCALL | Editar Operador </title>
+       <title>SYSCALL | Cadastrar Operador</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -61,38 +61,39 @@
                           <img src="assets/img/ui-sam.jpg" class="img-circle" width="60">
                       </a>
                   </p>
-                  <h5 class="centered">Augusto Berwaldt</h5>
-
+              	  <h5 class="centered">Augusto Berwaldt</h5>
+              	  	
                   <li class="mt">
-                      <a href="index.html">
+                      <a class="active" href="index.html">
                           <i class="fa fa-dashboard"></i>
                           <span>Home</span>
                       </a>
                   </li>
                   <li class="mt">
-                      <a href="chamados.html" >
+                      <a href="usuarios.html" >
                           <i class="fa fa-desktop"></i>
                           <span> Chamados</span>
                       </a>
                   </li>
 				  <li class="mt">
-                      <a  href="relatorios.html">
+                      <a class="active" href="relatorios.html">
                           <i class="fa fa-file-text"></i>
                           <span>Relatoriós</span>
                       </a>
                   </li>
-				  <li class="mt">
-                      <a href="clientes.html" >
+				  <li class="sub-menu">
+                      <a href="usuarios.html" >
                           <i class="fa fa-users"></i>
                           <span> Clientes</span>
                       </a>
-					
                   </li>
-                  <li class="mt">
-                      <a class="active"  href="usuarios.html" >
+                  <li class="sub-menu">
+                      <a href="usuarios.html" >
                           <i class="fa fa-users"></i>
-                          <span> Opeardores</span>
+                          <span> Operadores</span>
                       </a>
+				
+
                   </li>
 
               </ul>
@@ -107,31 +108,35 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Operadores </h3>
+          	<h3><i class="fa fa-angle-right"></i> Usuários </h3>
           	<div class="row mt">
+			    <div class="col-lg-12">
+			            <div id="erroCadastro" class="alert alert-danger"><b>Erro.</b> Erro a o salvar os dados !</div>
+				
+				</div>
           		<div class="col-lg-12">
                    <div class="form-panel">
-						<h4 class="mb"><i class="fa fa-angle-right"></i> Novo Operador</h4>
+						<h4 class="mb"><i class="fa fa-angle-right"></i> Novo Usuário</h4>
 				        <form class="form-horizontal style-form" method="get">
 							<div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Nome :</label>
 								  <div class="col-sm-8">
-									  <input id="nome" type="text" value="Augusto Berwaldt"  class="form-control">
+									  <input type="text" class="form-control">
 								  </div>
 							</div>
                             <div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Email :</label>
 								  <div class="col-sm-8">
-									  <input type="text" value="augusto.berwaldt@gmail.com" class="form-control">
-								  </div>
-							</div>
-                            <div class="form-group">
-								  <label class="col-sm-1 col-sm-1 control-label">Cliente :</label>
-								  <div class="col-sm-8">
-									  <input type="text" value="Moovin" class="form-control">
+									  <input type="text" class="form-control">
 								  </div>
 							</div>
 							<div class="form-group">
+								  <label class="col-sm-1 col-sm-1 control-label">Cliente:</label>
+								  <div class="col-sm-8">
+									  <input type="text" class="form-control">
+								  </div>
+							</div>
+                            <div class="form-group">
 								  <label class="col-sm-1 col-sm-1 control-label">Grupo :</label>
 								  <div class="col-sm-8">
 									 <select class="form-control">
@@ -146,8 +151,8 @@
 									  <input type="file" id="exampleInputFile">
 								  </div>
 							</div> 
-							<button type="button" class="btn btn-theme03">Salvar</button>
-							<a href="usuarios.html" type="button" class="btn btn-default">Voltar</a>
+							<button id="salvar" href="usuarios_cadastro_salvo.html" type="button" class="btn btn-theme03">Salvar</button>
+							<a  href="usuarios.html" class="btn btn-default">Voltar</a>
                         </form>							
 						</div>  
 				    </div>
