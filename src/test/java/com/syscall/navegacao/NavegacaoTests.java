@@ -30,7 +30,7 @@ public class NavegacaoTests  extends FluentTest {
 	}
 
 	@Test
-	public void loginTest() {
+	public void loginTeste() {
 		goTo(getUrl("login"));
 		assertThat(window().title()).isEqualTo("Syscall - Login");
 		$("#email").fill().with("user");
@@ -104,8 +104,38 @@ public class NavegacaoTests  extends FluentTest {
 				assertThat(style).hasToString("display: none;");
 			}
 		});
+
         $("#deletar_operador").click();
 
+	}
+
+	@Test
+	public void validaCamposObrigatoriosCadastroOperadores() {
+		goTo(getUrl("usuario_cadastrar"));
+
+		assertThat(window().title()).contains("SYSCALL | Cadastrar Operador");
+
+		assertThat($("#nome").attribute("required")).isEqualTo("true");
+		assertThat($("#email").attribute("required")).isEqualTo("true");
+		assertThat($("#cliente").attribute("required")).isEqualTo("true");
+		assertThat($("#grupo").attribute("required")).isEqualTo("true");
+		assertThat($("#foto").attribute("required")).isEqualTo("true");
+
+	}
+
+	@Test
+	public void validaCampoMultiplosClientesOperadores() {
+		goTo(getUrl("usuario_cadastrar"));
+		assertThat($("#cliente").attribute("multiple")).isEqualTo("true");
+
+	}
+
+	@Test
+	public void validaCampoDeFiltroOperadores() {
+		goTo(getUrl("usuarios"));
+
+		assertThat($("#email").attribute("placeholder")).isEqualTo("Email");
+		assertThat($("#cliente").attribute("placeholder")).isEqualTo("Cliente");
 	}
 
 }
