@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	lang="en" layout:decorator="/layouts/main">
+
+<head>
+
+</head>
+
+<body>
+	<!-- PAGE HEADER -->
+	<section th:fragment="header">
+		<h1>
+			<span th:text="#{index.header}"></span>
+		</h1>
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb">
+			<li>
+			     <a href="#">
+			      <i class="fa fa-dashboard"></i> 
+			      <span th:text="#{index.breadcrumb-1}" />
+			    </a>
+			</li>
+			<li><a href="#"><span th:text="#{index.breadcrumb-2}" /></a></li>
+			<li class="active"><span th:text="#{index.breadcrumb-3}" /></li>
+		</ol>
+	</section>
+</body>
+</html>
