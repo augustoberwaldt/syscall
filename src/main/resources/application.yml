@@ -1,4 +1,15 @@
-#spring:
-#  thymeleaf:
-#    prefix: classpath:/templates
- #   suffix: .html
+spring:
+  thymeleaf:
+   # prefix: classpath:/templates
+    cache: false
+    suffix: .html
+  h2.console:
+    enabled: true
+    path: /db
+  jpa:
+    show-sql: true
+    hibernate:
+        ddl-auto: create-drop
+  datasource:
+    url: jdbc:h2:~/dev;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS SYSCALL
+    platform: h2
