@@ -14,7 +14,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -84,7 +84,7 @@
 
                 </li>
                 <li class="mt">
-                    <a href="usuarios.html" >
+                    <a th:href="@{/operador/listagem}" >
                         <i class="fa fa-users"></i>
                         <span> Operadores</span>
                     </a>
@@ -99,9 +99,8 @@
     <!--sidebar end-->
 
     <!--main content start-->
-    <section  id="main-content">
-        <section class="wrapper">
-        </section>
+    <section layout:fragment="content"  id="main-content">
+
     </section>
     <!--main content end-->
 
@@ -118,8 +117,8 @@
 <script src="/webjars/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
 
 
-<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+<script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
 
 </body>
 </html>
