@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/augustoberwaldt/syscall.svg?branch=master)
+[![Build Status](https://travis-ci.org/augustoberwaldt/syscall.svg?branch=master)](https://travis-ci.org/augustoberwaldt/syscall) 
+
 [![Code Climate](https://codeclimate.com/github/augustoberwaldt/syscall.svg)](https://codeclimate.com/github/augustoberwaldt/syscall)
 
 # Sistema de Gerenciamento de Chamados
