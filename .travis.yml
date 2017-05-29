@@ -1,8 +1,8 @@
 language: java
+sudo: false
+
 jdk:
- - oraclejdk8
-deploy:
- provider: heroku
- api-key: 
-  secure: $HEROKU_API_KEY
- app: syscall
+  - oraclejdk8
+
+after_success:
+  - mvn jacoco:report coveralls:report
