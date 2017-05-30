@@ -14,4 +14,9 @@ public class OperadorController {
     }
 
 
+    @GetMapping("/cadastrar")
+    public String cadastrar() {
+        return "operador/cadastrar";
+    }
+
 }

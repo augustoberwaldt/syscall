@@ -1,6 +1,6 @@
-spring:
+﻿spring:
   thymeleaf:
-    #prefix: classpath:/templates
+    prefix: classpath:/templates
     cache: false
     suffix: .html
   h2.console:
