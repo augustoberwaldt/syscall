@@ -1,8 +1,6 @@
 spring:
   thymeleaf:
-    prefix: classpath:/templates
     cache: false
-    suffix: .html
   h2.console:
     enabled: true
     path: /db
