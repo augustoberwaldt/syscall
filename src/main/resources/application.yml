@@ -1,4 +1,4 @@
-﻿spring:
+spring:
   thymeleaf:
     prefix: classpath:/templates
     cache: false
