@@ -5,7 +5,6 @@ install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn -Psyscall clean compile
-- mvn clean verify jacoco:report
 after_success:
   - mvn coveralls:report
 group: stable
