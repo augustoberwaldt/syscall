@@ -2,7 +2,10 @@ package com.syscall.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.Set;
+import com.syscall.domain.Cliente;
 
 @Entity
 public class Operador {
@@ -18,8 +21,38 @@ public class Operador {
 
     private String senha;
 
+    @OneToMany
+    private Set<Cliente> Cliente;
+
     private int status;
 
+    private String grupo;
+
+    private String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public Set<Cliente> getCliente() {
+        return Cliente;
+    }
+
+    public void setCliente(Set<Cliente> cliente) {
+        Cliente = cliente;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
 
     public String getSenha() {
         return senha;

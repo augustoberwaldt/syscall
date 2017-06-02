@@ -1,1 +1,4 @@
 INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS) values(1,'2017-05-27', 'augusto.berwaldt@gmail.com' , 'Augusto Berwaldt', '$2a$10$Qji2/icFWIGGQEAv8bbwNuKGrSZyiUUPqE/0SNO2M.BpU.NA6xPhW' , 1);
+INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS) values(2,'2017-05-27', 'teste1@gmail.com' , 'Teste1', '$2a$10$Qji2/icFWIGGQEAv8bbwNuKGrSZyiUUPqE/0SNO2M.BpU.NA6xPhW' , 1);
+INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS) values(3,'2017-05-27', 'teste2@gmail.com' , 'Teste2', '$2a$10$Qji2/icFWIGGQEAv8bbwNuKGrSZyiUUPqE/0SNO2M.BpU.NA6xPhW' , 1);
+INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS) values(4,'2017-05-27', 'teste3@gmail.com' , 'Teste3', '$2a$10$Qji2/icFWIGGQEAv8bbwNuKGrSZyiUUPqE/0SNO2M.BpU.NA6xPhW' , 1);
