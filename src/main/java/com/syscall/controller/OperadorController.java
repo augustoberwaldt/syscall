@@ -41,7 +41,6 @@ public class OperadorController {
 
     @PostMapping("/save")
     public void save(@Valid Operador operador, Model model) {
-
         this.operadorService.save(operador);
     }
 

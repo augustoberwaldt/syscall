@@ -48,7 +48,11 @@
                                     <td th:text="${#strings.listJoin(#messages.listMsg(operador.cliente), ',')}" > </td>
                                     <td th:text="${operador.nome}" > </td>
                                     <td th:text="${operador.grupo}" > </td>
-                                    <td th:text="${operador.status}" > </td>
+                                    <td> 
+                                       <span th:class="${operador.status == 1} ? 'label label-success' : 'label label-danger'"
+                                             th:text="${operador.status == 1} ? 'Ativo' : 'Inativo'" >
+                                       </span>     
+                                    </td>
                                     <td>
                                         <a id="editar_operador" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
