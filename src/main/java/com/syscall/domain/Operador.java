@@ -3,6 +3,8 @@ package com.syscall.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 import java.util.Set;
 import com.syscall.domain.Cliente;
@@ -15,8 +17,10 @@ public class Operador {
 
     private Date data;
 
+    @NotNull
     private String nome;
 
+    @NotNull
     private String email;
 
     private String senha;
@@ -26,6 +30,7 @@ public class Operador {
 
     private int status;
 
+    @NotNull
     private String grupo;
 
     private String foto;

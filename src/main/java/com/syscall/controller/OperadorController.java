@@ -4,6 +4,7 @@ import com.syscall.domain.Operador;
 import com.syscall.service.OperadorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,8 +41,14 @@ public class OperadorController {
     }
 
     @PostMapping("/save")
-    public void save(@Valid Operador operador, Model model) {
-        this.operadorService.save(operador);
+    public String save(@Valid Operador operador, BindingResult bindingResult, Model model) {
+
+        if (!bindingResult.hasErrors()) {
+    	 operador.setStatus(1);
+    	 this.operadorService.save(operador);
+    	}
+        
+    	return "redirect:/operador/cadastrar";
     }
 
 }
