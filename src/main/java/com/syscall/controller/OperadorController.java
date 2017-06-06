@@ -27,7 +27,7 @@ public class OperadorController {
     @GetMapping("/listagem")
     public ModelAndView listagem() {
 
-        return new ModelAndView("operador/index").addObject(
+        return new ModelAndView("operator/index").addObject(
                 "operadores",
                 this.operadorService.getAll()
         );
@@ -37,7 +37,7 @@ public class OperadorController {
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
         Operador operador = new Operador();
-        return new ModelAndView("operador/cadastrar").addObject("operador", operador);
+        return new ModelAndView("operator/cadastrar").addObject("operador", operador);
     }
 
     @PostMapping("/save")
@@ -48,7 +48,7 @@ public class OperadorController {
     	 this.operadorService.save(operador);
     	}
         
-    	return "redirect:/operador/cadastrar";
+    	return "redirect:/operator/cadastrar";
     }
 
 }
