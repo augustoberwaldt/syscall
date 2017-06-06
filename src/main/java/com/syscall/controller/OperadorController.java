@@ -27,7 +27,7 @@ public class OperadorController {
     @GetMapping("/listagem")
     public ModelAndView listagem() {
 
-        return new ModelAndView("operador/listagem").addObject(
+        return new ModelAndView("operador/index").addObject(
                 "operadores",
                 this.operadorService.getAll()
         );
