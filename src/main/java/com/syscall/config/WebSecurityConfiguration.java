@@ -41,8 +41,13 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests().antMatchers("/login**", "/dist/**", "/webjars**", "/db/**")
-                .permitAll().anyRequest().authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf()
+        http.antMatcher("/**").authorizeRequests().
+                antMatchers(
+                        "/login**",
+                "/dist/**", "/webjars**", "/db/**")
+                .permitAll().anyRequest().
+                 authenticated().and().logout().
+                 logoutSuccessUrl("/").permitAll().and().csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().formLogin()
                 .loginPage("/login").permitAll().and().logout().deleteCookies("remember-me")
                 .logoutSuccessUrl("/login?logout").permitAll().and().rememberMe();

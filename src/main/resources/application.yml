@@ -16,3 +16,15 @@ spring:
     remote:
       debug:
         enabled: true
+  mail:
+    host: smtp.gmail.com
+    username: augusto.berwaldt@gmail.com
+    password: Marlon123
+    port: 587
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+
