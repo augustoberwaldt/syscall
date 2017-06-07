@@ -1,5 +1,8 @@
 package com.syscall.util;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class RandomGenerator {
 	
 	private static final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

@@ -1,13 +1,17 @@
 package com.syscall.service;
 
+import com.syscall.domain.Operador;
 import com.syscall.domain.UserImpl;
 import com.syscall.repository.OperadorRepository;
+import com.syscall.util.RandomGenerator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -46,7 +50,7 @@ public class AccountUserDetailsService implements UserDetailsService {
         
     	String newPass = RandomGenerator.generateRandom(6);
         this.updatePassword(newPass,
-              this.operadorRepository.findByEmail(username)   
+              this.operadorRepository.findOneByEmail(email)   
         );
         
     	Map<String,String> options = new HashMap();
@@ -58,8 +62,8 @@ public class AccountUserDetailsService implements UserDetailsService {
     }
     
     
-    private String updatePassword(String pass, Operador operador) {
-        operador.setSenha((new BCryptPasswordEncoder(pass)).toString());
+    private void updatePassword(String pass, Operador operador) {
+        operador.setSenha(new BCryptPasswordEncoder().encode(pass));
         this.operadorRepository.save(operador);    
     }
     

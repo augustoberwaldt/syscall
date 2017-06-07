@@ -13,5 +13,6 @@ import java.util.Optional;
 public  interface  OperadorRepository  extends JpaRepository<Operador, Long> {
 
     Optional<Operador> findByEmail(String username);
+    Operador findOneByEmail(String email);
 
 }
