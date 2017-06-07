@@ -10,10 +10,27 @@ var Auth = {
 		 $.ajax({
 			 url : '/rememberPassword', 
 			 method: 'POST',
-			 data : {email : Auth.getMail()}
+			 data : {email : Auth.getMail()},
+			 success: function(res) {				
+			     if (res.mensage == 'Error') { 	 
+			    	 Auth.setMensage('Error', 'E-mail não encontrado.');
+			     } else {
+			    	 Auth.setMensage('Success', 'Senha enviada para e-mail acima.');
+			     }
+			 },
+			 error: function() { 
+				 Auth.setMensage('Error', 'Houve um problema ao enviar sua solicitação de senha.'); 			
+			 }
 		 });
 		 
+	 },
+	 setMensage : function(type, text) {
 		 
+		 var typem = (type != 'Success' ? 'danger' : 'success');  
+		 $('#return_mensage').text('');
+		 $('#return_mensage').addClass('alert-'+ typem);
+		 $('#return_mensage').append("<b>"+ type  +"!</b> " + text);
+		 $('#return_mensage').show();
 	 }
 		
 }
