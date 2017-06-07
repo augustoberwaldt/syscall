@@ -44,7 +44,10 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.antMatcher("/**").authorizeRequests().
                 antMatchers(
                         "/login**",
-                "/dist/**", "/webjars**", "/db/**")
+                "/dist/**",
+                "/webjars**",
+                "/rememberPassword**", 
+                "/db/**")
                 .permitAll().anyRequest().
                  authenticated().and().logout().
                  logoutSuccessUrl("/").permitAll().and().csrf()

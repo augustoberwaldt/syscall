@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -17,8 +19,11 @@ public class AccountUserDetailsService implements UserDetailsService {
 
     private final OperadorRepository operadorRepository;
 
+    private  final NotificationService notificationService;
+    
     @Autowired
-    public AccountUserDetailsService(OperadorRepository operadorRepository) {
+    public AccountUserDetailsService(OperadorRepository operadorRepository, NotificationService notificationService) {
+    	this.notificationService =  notificationService;
         this.operadorRepository = operadorRepository;
     }
 
@@ -31,4 +36,20 @@ public class AccountUserDetailsService implements UserDetailsService {
                         AuthorityUtils.createAuthorityList("ROLE_ADMIN", "ROLE_USER")
                 )).orElseThrow(() -> new UsernameNotFoundException("couldn't find " + username + "!"));
     }
+    
+    
+    public boolean existAccount (String email) {
+    	return this.operadorRepository.findByEmail(email).isPresent();
+    }
+    
+    public void  sendPasswordMail(String email) {
+    	
+    	Map<String,String> options = new HashMap();
+    	options.put("to", email);
+    	options.put("subject", "SYSCALL - Recuperação de senha");
+    	options.put("text", "h31jk23h1j2gh3u12");
+    	
+    	this.notificationService.sendNotification(options);
+    }
+    
 }

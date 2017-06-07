@@ -18,8 +18,8 @@ spring:
         enabled: true
   mail:
     host: smtp.gmail.com
-    username: augusto.berwaldt@gmail.com
-    password: Marlon123
+    username: syscall.remember@gmail.com
+    password: tads12345
     port: 587
     protocol: smtp
     tls: true
