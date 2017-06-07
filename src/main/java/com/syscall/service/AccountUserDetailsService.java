@@ -43,13 +43,24 @@ public class AccountUserDetailsService implements UserDetailsService {
     }
     
     public void  sendPasswordMail(String email) {
-    	
+        
+    	String newPass = RandomGenerator.generateRandom(6);
+        this.updatePassword(newPass,
+              this.operadorRepository.findByEmail(username)   
+        );
+        
     	Map<String,String> options = new HashMap();
     	options.put("to", email);
     	options.put("subject", "SYSCALL - Recuperação de senha");
-    	options.put("text", "h31jk23h1j2gh3u12");
+    	options.put("text", "NOVA SENHA :" + newPass);
     	
     	this.notificationService.sendNotification(options);
+    }
+    
+    
+    private String updatePassword(String pass, Operador operador) {
+        operador.setSenha((new BCryptPasswordEncoder(pass)).toString());
+        this.operadorRepository.save(operador);    
     }
     
 }
