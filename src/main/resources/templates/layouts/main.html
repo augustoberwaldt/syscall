@@ -26,29 +26,11 @@
 <body>
 
 <section id="container" >
-    <header class="header black-bg">
-        <div class="sidebar-toggle-box">
-            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-        </div>
-        <!--logo start-->
-        <a href="index.html" class="logo"><b>SYSCALL</b></a>
-        <!--logo end-->
-
-        <div class="top-menu">
-            <ul class="nav pull-right top-menu">
-                <li><a class="logout" th:href="@{/logout}" >Sair</a></li>
-            </ul>
-        </div>
-    </header>
+    <header th:replace="layouts/fragments/header" class="header black-bg"></header>
 
     <aside th:include="layouts/fragments/menu" > </aside>
 
-
-    <!--main content start-->
-    <section layout:fragment="content"  id="main-content">
-    </section>
-    <!--main content end-->
-
+    <section layout:fragment="content" id="main-content"> </section>
 
 </section>
 
