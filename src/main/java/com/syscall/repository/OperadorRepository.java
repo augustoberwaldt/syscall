@@ -14,5 +14,6 @@ public  interface  OperadorRepository  extends JpaRepository<Operador, Long> {
 
     Optional<Operador> findByEmail(String username);
     Operador findOneByEmail(String email);
+    Operador findOneById(Long id);
 
 }

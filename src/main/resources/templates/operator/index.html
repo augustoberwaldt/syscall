@@ -54,7 +54,7 @@
                                        </span>     
                                     </td>
                                     <td>
-                                        <a id="editar_operador" class="btn btn-primary btn-xs">
+                                        <a id="editar_operador" th:href="@{/operador/edit/} + ${operador.id}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                         <button id="deletar_operador" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDelete">

@@ -33,4 +33,14 @@ public class OperadorService {
     public List<Operador> getAll() {
         return  this.operadorRepository.findAll();
     }
+
+    /**
+     *  get operador
+     * @param id
+     * @return
+     */
+    public Operador get(Long id) {
+
+        return this.operadorRepository.findOneById(id);
+    }
 }

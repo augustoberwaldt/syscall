@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,7 +38,7 @@ public class OperadorController {
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
         Operador operador = new Operador();
-        return new ModelAndView("operator/cadastrar").addObject("operador", operador);
+        return new ModelAndView("operator/add_edit").addObject("operador", operador);
     }
 
     @PostMapping("/save")
@@ -50,5 +51,12 @@ public class OperadorController {
         
     	return "redirect:/operator/cadastrar";
     }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView update(@PathVariable Long id) {
+        Operador operador = this.operadorService.get(id);
+        return new ModelAndView("operator/add_edit").addObject("operador", operador);
+    }
+
 
 }
