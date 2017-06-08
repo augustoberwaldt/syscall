@@ -29,8 +29,20 @@ public class Operador {
     private Set<Cliente> Cliente;
 
     private int status;
-
+    
     @NotNull
+    private int ativo;
+    
+
+    public int getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(int ativo) {
+		this.ativo = ativo;
+	}
+
+	@NotNull
     private String grupo;
 
     private String foto;

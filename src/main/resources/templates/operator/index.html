@@ -36,7 +36,6 @@
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
-                                <th><i class="fa fa-bullhorn"></i> Cliente</th>
                                 <th class="hidden-phone"><i class="fa fa-question-circle"></i> Nome</th>
                                 <th><i class="fa fa-bookmark"></i> Grupo</th>
                                 <th><i class=" fa fa-edit"></i> Status</th>
@@ -45,12 +44,11 @@
                             </thead>
                             <tbody>
                                 <tr th:each="operador : ${operadores}">
-                                    <td th:text="${#strings.listJoin(#messages.listMsg(operador.cliente), ',')}" > </td>
                                     <td th:text="${operador.nome}" > </td>
                                     <td th:text="${operador.grupo}" > </td>
                                     <td> 
-                                       <span th:class="${operador.status == 1} ? 'label label-success' : 'label label-danger'"
-                                             th:text="${operador.status == 1} ? 'Ativo' : 'Inativo'" >
+                                       <span th:class="${operador.ativo == 1} ? 'label label-success' : 'label label-danger'"
+                                             th:text="${operador.ativo == 1} ? 'Ativo' : 'Inativo'" >
                                        </span>     
                                     </td>
                                     <td>
