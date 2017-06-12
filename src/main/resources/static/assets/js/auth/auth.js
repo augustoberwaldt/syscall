@@ -26,9 +26,10 @@ var Auth = {
 	 },
 	 setMensage : function(type, text) {
 		 
-		 var typem = (type != 'Success' ? 'danger' : 'success');  
+		 var typem = (type != 'Success' ? 'danger' : 'success');
 		 $('#return_mensage').text('');
-		 $('#return_mensage').addClass('alert-'+ typem);
+		 $('#return_mensage').removeClass();
+		 $('#return_mensage').addClass('alert alert-'+ typem);
 		 $('#return_mensage').append("<b>"+ type  +"!</b> " + text);
 		 $('#return_mensage').show();
 	 }

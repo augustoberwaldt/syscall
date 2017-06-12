@@ -1,6 +1,7 @@
 package com.syscall.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ import com.syscall.domain.Cliente;
 public class Operador {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private Date data;
