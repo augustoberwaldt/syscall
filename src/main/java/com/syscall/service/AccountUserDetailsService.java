@@ -37,7 +37,8 @@ public class AccountUserDetailsService implements UserDetailsService {
                 .map(account -> new UserImpl(
                         account.getEmail(),
                         account.getSenha(),
-                        AuthorityUtils.createAuthorityList("ROLE_ADMIN", "ROLE_USER")
+                        AuthorityUtils.createAuthorityList("ROLE_ADMIN", "ROLE_USER"),
+                        account
                 )).orElseThrow(() -> new UsernameNotFoundException("couldn't find " + username + "!"));
     }
     

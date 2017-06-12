@@ -5,16 +5,16 @@
                 <img src="/assets/img/ui-sam.jpg" class="img-circle" width="60" />
             </a>
         </p>
-        <h5 th:inline="text" class="centered"> [[${#httpServletRequest.remoteUser}]]</h5>
+        <h5 sec:authentication="principal.operador" class="centered"> </h5>
 
         <li class="mt">
-            <a class="active" href="index.html">
+            <a  th:href="@{/home}">
                 <i class="fa fa-dashboard"></i>
                 <span>Home</span>
             </a>
         </li>
         <li class="mt" >
-            <a href="#" >
+            <a th:href="@{/call/}" >
                 <i class="fa fa-desktop"></i>
                 <span> Chamados</span>
             </a>
