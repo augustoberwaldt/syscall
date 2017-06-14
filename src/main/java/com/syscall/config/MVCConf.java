@@ -34,6 +34,7 @@ public class MVCConf extends WebMvcConfigurerAdapter {
         return slr;
     }
     
+    
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
