@@ -37,7 +37,7 @@
 				 th:text="#{login.disconnect}"></div>
 
 		      <form class="form-login" th:action="@{/login}" method="post" >
-		        <h2 class="form-login-heading">Logar no Sistema</h2>
+		        <h2 class="form-login-heading" th:text="#{auth.title}" ></h2>
 		        <div class="login-wrap">
 		            <input id="email" type="text" name="username" class="form-control" placeholder="Email" autofocus="autofocus" />
 		            <br/>
