@@ -2240,4 +2240,8 @@ label {
     min-height: 900px;
 }
 
+.message-error-success {
+   margin: 10px;
+   padding: 10px;
+}
 
