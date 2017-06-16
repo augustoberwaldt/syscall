@@ -49,7 +49,7 @@ public class OperadorController {
     	 this.operadorService.save(operador);
     	}
         
-    	return "redirect:/operator/cadastrar";
+    	return "redirect:/operador/cadastrar";
     }
 
     @RequestMapping("/edit/{id}")
