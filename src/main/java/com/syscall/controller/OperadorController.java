@@ -28,7 +28,7 @@ public class OperadorController {
 
     }
 
-    @GetMapping("/listagem")
+    @GetMapping("/")
     public ModelAndView listagem() {
 
         return new ModelAndView("operator/index").addObject(
