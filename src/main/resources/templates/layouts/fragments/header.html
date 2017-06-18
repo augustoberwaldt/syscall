@@ -1,13 +1,12 @@
 <header class="header black-bg">
-    <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-    </div>
-
-    <a th:href="@{/}" class="logo"><b>SYSCALL</b></a>
-
-    <div class="top-menu">
-        <ul class="nav pull-right top-menu">
-            <li><a class="logout" th:href="@{/logout}" >Sair</a></li>
-        </ul>
-    </div>
+   <div class="sidebar-toggle-box">
+      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+   </div>
+   <a th:href="@{/}" class="logo"><b>SYSCALL</b></a>
+   <div th:replaace="layouts/fragments/language">  </div> 
+   <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+         <li><a class="logout" th:href="@{/logout}" >Sair</a></li>
+      </ul>
+   </div>
 </header>

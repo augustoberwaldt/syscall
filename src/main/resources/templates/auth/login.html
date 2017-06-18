@@ -27,7 +27,8 @@
   </head>
 
   <body>
-
+ 
+      <div th:replace="layouts/fragments/language"> </div>       
 	  <div id="login-page">
 	  	<div class="container">
 			<div th:if="${param.error}" class="alert alert-danger"
