@@ -7,7 +7,7 @@
 <body>
     <section layout:fragment="content"  id="main-content">
         <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right"></i> Usuários </h3>
+            <h3 th:text="#{operator.title.page}"><i class="fa fa-angle-right"></i>  </h3>
             <div class="row mt">
                 <div class="col-lg-12">
                     <div class="form-panel">
@@ -16,12 +16,8 @@
                                 <label class="sr-only" >Email address</label>
                                 <input type="email" class="form-control"  name="email" id="email" placeholder="Email" />
                             </div>
-                            <div class="col-lg-6">
-                                <label class="sr-only" >Cliente</label>
-                                <input type="text" class="form-control" id="cliente" placeholder="Cliente" />
-                            </div>
-
-                            <button id="buscar" type="submit" class="btn btn-info">Buscar</button>
+                            
+                            <button id="buscar" type="submit" class="btn btn-info" th:text="#{operator.btn.search}" ></button>
 
                         </form>
                     </div>
@@ -31,13 +27,13 @@
                     <div class="form-panel">
 
                         <div class="pull-right">
-                            <a id="usuario_cadastrar" th:href="@{/operador/cadastrar}" class="btn btn-success"> Cadastrar </a>
+                            <a id="usuario_cadastrar" th:href="@{/operador/cadastrar}" class="btn btn-success" th:text="#{operator.btn.register}" >  </a>
                         </div>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
-                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Nome</th>
-                                <th><i class="fa fa-bookmark"></i> Grupo</th>
+                                <th th:text="#{operator.table.name}"  class="hidden-phone"><i class="fa fa-question-circle"></i> </th>
+                                <th th:text="#{operator.table.group}" ><i class="fa fa-bookmark" ></i></th>
                                 <th><i class=" fa fa-edit"></i> Status</th>
                                 <th></th>
                             </tr>

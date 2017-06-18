@@ -48,13 +48,24 @@ public class OperadorController {
     public String save(@Valid Operador operador, BindingResult bindingResult, Model model,
     		RedirectAttributes redirectAttrs, Locale locale) {
 
+
+        String url = "";
+        if (operador.getId() == null) {
+            url = "redirect:/operador/cadastrar";
+        } else {
+            url =  "redirect:/operador/edit/"+ operador.getId();
+        }
+
         if (!bindingResult.hasErrors()) {
     	    operador.setStatus(1);
     	    this.operadorService.save(operador);
     	    redirectAttrs.addFlashAttribute("message", "scascascs");
     	}
-        
-        return "redirect:/operador/cadastrar";
+
+
+        return url;
+
+
     }
 
     @RequestMapping("/edit/{id}")

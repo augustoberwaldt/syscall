@@ -6,7 +6,7 @@
    <div th:replace="layouts/fragments/language">  </div>
    <div class="top-menu">
       <ul class="nav pull-right top-menu">
-         <li><a class="logout" th:href="@{/logout}" >Sair</a></li>
+         <li><a class="logout" th:href="@{/logout}" th:text="#{header.logout}"  ></a></li>
       </ul>
    </div>
 </header>
