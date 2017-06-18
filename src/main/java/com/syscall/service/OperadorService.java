@@ -31,7 +31,7 @@ public class OperadorService {
      * @return List<Operador>
      */
     public List<Operador> getAll() {
-        return  this.operadorRepository.findAll();
+        return  this.operadorRepository.findByStatus(1);
     }
 
     /**

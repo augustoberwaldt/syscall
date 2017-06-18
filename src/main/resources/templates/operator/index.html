@@ -16,7 +16,7 @@
                                 <label class="sr-only" >Email address</label>
                                 <input type="email" class="form-control"  name="email" id="email" placeholder="Email" />
                             </div>
-                            
+
                             <button id="buscar" type="submit" class="btn btn-info" th:text="#{operator.btn.search}" ></button>
 
                         </form>
@@ -24,6 +24,10 @@
                 </div>
 
                 <div class="col-lg-12">
+                    <div  th:if="${message}"
+                          class="message-error-success alert alert-success">
+                        <p th:text="${message}" />
+                    </div>
                     <div class="form-panel">
 
                         <div class="pull-right">
@@ -51,9 +55,9 @@
                                         <a id="editar_operador" th:href="@{/operador/edit/} + ${operador.id}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <button id="deletar_operador" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDelete">
+                                        <a id="deletar_operador"  th:href="@{/operador/delete/} + ${operador.id}" class="btn btn-danger btn-xs" >
                                             <i class="fa fa-trash-o "></i>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

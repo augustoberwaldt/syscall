@@ -85,9 +85,6 @@ public class Operador {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Date getData() {
         return data;

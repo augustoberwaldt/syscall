@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.text.MessageFormat;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -46,7 +47,7 @@ public class OperadorController {
 
     @PostMapping("/save")
     public String save(@Valid Operador operador, BindingResult bindingResult, Model model,
-    		RedirectAttributes redirectAttrs, Locale locale) {
+    		RedirectAttributes redirectAttrs) {
 
 
         String url = "";
@@ -74,5 +75,17 @@ public class OperadorController {
         return new ModelAndView("operator/add_edit").addObject("operador", operador);
     }
 
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+        Operador operador = this.operadorService.get(id);
+        if (operador != null) {
+            operador.setStatus(0);
+            this.operadorService.save(operador);
+            redirectAttrs.addFlashAttribute("message", "Deletado com sucesso");
+        }
+
+        return "redirect:/operador/";
+    }
 
 }
