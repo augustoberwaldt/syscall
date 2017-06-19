@@ -1,4 +1,4 @@
-package com.syscall.domain;
+package com.syscall.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
