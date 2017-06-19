@@ -6,7 +6,7 @@ INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS,ATIVO, GRUPO) values(4
 INSERT INTO operador(ID, DATA, EMAIL, NOME, SENHA, STATUS,ATIVO, GRUPO) values(5,'2017-05-27', 'rodrigo.noll@canoas.ifrs.edu.br' , 'Rodrigo Noll', '$2a$10$Qji2/icFWIGGQEAv8bbwNuKGrSZyiUUPqE/0SNO2M.BpU.NA6xPhW' , 1, 1,'Administrador');
 
 
-INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE) values(1,1,'teste@freecs.com','Freecs',1,'345446562');
-INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE) values(2,1,'teste@google.com','Google',1,'345446562');
+INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(1,1,'teste@freecs.com','Freecs',1,'345446562', 'freecs.com');
+INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(2,1,'teste@google.com','Google',1,'345446562', 'google.com');
 
 
