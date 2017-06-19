@@ -1,6 +1,7 @@
 package com.syscall.controller;
 
 import com.syscall.domain.Operador;
+import com.syscall.service.ClienteService;
 import com.syscall.service.OperadorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,9 +24,12 @@ public class OperadorController {
 
     private final OperadorService operadorService;
 
+    private final ClienteService clienteService;
 
-    public OperadorController(OperadorService operadorService) {
+
+    public OperadorController(OperadorService operadorService, ClienteService clienteService) {
         this.operadorService =  operadorService;
+        this.clienteService =  clienteService;
 
     }
 
@@ -42,7 +46,9 @@ public class OperadorController {
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
         Operador operador = new Operador();
-        return new ModelAndView("operator/add_edit").addObject("operador", operador);
+        return new ModelAndView("operator/add_edit")
+        		   .addObject("operador", operador)
+        		   .addObject("clientes", this.clienteService.getAll());
     }
 
     @PostMapping("/save")

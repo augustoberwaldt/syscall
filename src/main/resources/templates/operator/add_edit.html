@@ -36,11 +36,8 @@
                         <div class="form-group">
                             <label class="col-sm-1 col-sm-1 control-label">Cliente:</label>
                             <div class="col-sm-8">
-                                <select  name="cliente" multiple="multiple" id="cliente" class="form-control"  >
-                                    <option value="moovin" >Moovin</option>ente}"
-                                    <option value="freecs" >Freecs</option>
-                                    <option value="katy" >katy</option>
-                                    <option value="eletrum" >Eletrum</option>
+                                <select    name="cliente" multiple="multiple" id="cliente" class="form-control"  >
+                                    <option  th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}" ></option>
                                 </select>
                             </div>
 

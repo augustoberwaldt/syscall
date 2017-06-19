@@ -1,14 +1,22 @@
 package com.syscall.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 import java.util.Set;
 import com.syscall.domain.Cliente;
+import static javax.persistence.TemporalType.TIMESTAMP;
 
 @Entity
 public class Operador {
@@ -17,6 +25,7 @@ public class Operador {
     @GeneratedValue
     private Long id;
 
+    @CreatedDate
     private Date data;
 
     @NotNull
