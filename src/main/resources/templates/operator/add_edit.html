@@ -19,7 +19,7 @@
 							
                 <div class="form-panel">
                     <h4 class="mb"><i class="fa fa-angle-right"></i> Novo Usuário</h4>
-                    <form th:object="${operador}"  th:action="@{save}" class="form-horizontal style-form" method="post">
+                    <form enctype="multipart/form-data" th:object="${operador}"  th:action="@{save}" class="form-horizontal style-form" method="post">
                         <input type="hidden" th:field="*{id}" />
                         <div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
                             <label class="col-sm-1 col-sm-1 control-label">Nome :</label>

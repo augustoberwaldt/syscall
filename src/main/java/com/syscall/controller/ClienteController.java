@@ -1,16 +1,19 @@
 package com.syscall.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 import javax.validation.Valid;
 
+import com.syscall.config.Messages;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -48,13 +51,14 @@ public class ClienteController {
     }
 
 	@PostMapping("/save")
-    public String save(@Valid Cliente cliente, BindingResult bindingResult, Model model,
-    		RedirectAttributes redirectAttrs, Locale locale) {
+    public String save(@Valid Cliente cliente,
+					   BindingResult bindingResult,
+    		           RedirectAttributes redirectAttrs, Locale locale) {
 
         if (!bindingResult.hasErrors()) {
-        	cliente.setStatus(1);
+			cliente.setStatus(1);
     	    this.clienteService.save(cliente);
-    	    redirectAttrs.addFlashAttribute("message", "scascascs");
+    	    redirectAttrs.addFlashAttribute("message", Messages.get("messages.save", locale));
     	}
         
         return "redirect:/customer/cadastrar";

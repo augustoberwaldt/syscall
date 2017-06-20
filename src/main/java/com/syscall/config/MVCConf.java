@@ -39,7 +39,7 @@ public class MVCConf extends WebMvcConfigurerAdapter {
     @Bean
     public CookieLocaleResolver  localeResolver() {
         CookieLocaleResolver localeResolver = new CookieLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.PRC);
+        localeResolver.setDefaultLocale(Locale.US);
         localeResolver.setCookieName("lang");
         localeResolver.setCookieMaxAge(3600);
         return localeResolver;

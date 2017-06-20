@@ -12,9 +12,13 @@ public class Messages {
 	@Autowired
 	private MessageSource messageSource;
 
-	private MessageSourceAccessor accessor;
-	
-	public String get(String code) {
-		return accessor.getMessage(code);
+	private static MessageSourceAccessor accessor;
+
+	@PostConstruct
+	private void init() {
+		accessor = new MessageSourceAccessor(messageSource, Locale.US);
+	}
+	public static  String get(String code, Locale locale) {
+		return accessor.getMessage(code, locale);
 	}
 }

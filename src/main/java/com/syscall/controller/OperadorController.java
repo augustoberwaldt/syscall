@@ -1,15 +1,17 @@
 package com.syscall.controller;
 
+import com.syscall.config.Messages;
 import com.syscall.domain.Operador;
 import com.syscall.service.ClienteService;
 import com.syscall.service.OperadorService;
+import com.syscall.service.UploadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.StringMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,10 +28,19 @@ public class OperadorController {
 
     private final ClienteService clienteService;
 
+    private final UploadService uploadService;
 
-    public OperadorController(OperadorService operadorService, ClienteService clienteService) {
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(String.class, new StringMultipartFileEditor());
+    }
+
+    public OperadorController(OperadorService operadorService,
+                              ClienteService clienteService,
+                              UploadService uploadService) {
         this.operadorService =  operadorService;
-        this.clienteService =  clienteService;
+        this.clienteService  =  clienteService;
+        this.uploadService   =  uploadService;
 
     }
 
@@ -52,8 +63,8 @@ public class OperadorController {
     }
 
     @PostMapping("/save")
-    public String save(@Valid Operador operador, BindingResult bindingResult, Model model,
-    		RedirectAttributes redirectAttrs) {
+    public String save(@RequestParam("foto") MultipartFile file, @Valid Operador operador, BindingResult bindingResult, Model model,
+                       RedirectAttributes redirectAttrs, Locale locale) {
 
 
         String url = "";
@@ -63,10 +74,12 @@ public class OperadorController {
             url =  "redirect:/operador/edit/"+ operador.getId();
         }
 
-        if (!bindingResult.hasErrors()) {
+       if (!bindingResult.hasErrors()) {
+            String foto = uploadService.process(file);
     	    operador.setStatus(1);
+            operador.setFoto(foto);
     	    this.operadorService.save(operador);
-    	    redirectAttrs.addFlashAttribute("message", "scascascs");
+    	    redirectAttrs.addFlashAttribute("message", Messages.get("messages.save", locale));
     	}
 
 
@@ -88,7 +101,7 @@ public class OperadorController {
         if (operador != null) {
             operador.setStatus(0);
             this.operadorService.save(operador);
-            redirectAttrs.addFlashAttribute("message", "Deletado com sucesso");
+            redirectAttrs.addFlashAttribute("message",  Messages.get("messages.delete", locale));
         }
 
         return "redirect:/operador/";
