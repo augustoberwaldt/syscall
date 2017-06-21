@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.syscall</groupId>
@@ -22,10 +22,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+
+		<!-- I needed to add this -->
+		<selenium.version>3.0.1</selenium.version>
 	</properties>
 
 	<dependencies>
-	    <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
@@ -42,10 +46,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-        <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>    
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -56,16 +60,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
+
 		<dependency>
 			<groupId>org.fluentlenium</groupId>
 			<artifactId>fluentlenium-junit</artifactId>
-			<version>3.2.0</version>
+			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.fluentlenium</groupId>
 			<artifactId>fluentlenium-assertj</artifactId>
-			<version>3.2.0</version>
+			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -77,13 +84,39 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>htmlunit-driver</artifactId>
+			<version>2.23.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- jetty websocket is currently required by htmlunit-driver -->
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-api</artifactId>
+			<version>9.3.5.v20151012</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-client</artifactId>
+			<version>9.3.5.v20151012</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
+			<version>1.4.01</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>2.23</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+
+
 		<!-- webjars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -96,44 +129,44 @@
 			<version>2.7.1</version>
 		</dependency>
 		<dependency>
-           <groupId>org.webjars.npm</groupId>
-           <artifactId>jquery</artifactId>
-           <version>3.2.1</version>
-        </dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 		<dependency>
-           <groupId>org.webjars</groupId>
-           <artifactId>bootstrap</artifactId>
-           <version>3.2.0 </version>
-        </dependency>
-        <dependency>
-           <groupId>org.webjars</groupId>
-           <artifactId>font-awesome</artifactId>
-           <version>4.7.0</version>
-        </dependency>
-        <dependency>
-           <groupId>org.webjars</groupId>
-           <artifactId>jquery.scrollTo</artifactId>
-           <version>1.4.14</version>
-        </dependency>
-        <dependency>
-           <groupId>org.webjars</groupId>
-           <artifactId>jquery.nicescroll</artifactId>
-           <version>3.6.8-fix</version>
-        </dependency>
-        <dependency>
-           <groupId>org.webjars</groupId>
-           <artifactId>jquery.sparkline</artifactId>
-           <version>2.1.2</version>
-        </dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.2.0 </version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>4.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery.scrollTo</artifactId>
+			<version>1.4.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery.nicescroll</artifactId>
+			<version>3.6.8-fix</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery.sparkline</artifactId>
+			<version>2.1.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		<dependency>
-           <groupId>org.webjars.npm</groupId>
-           <artifactId>sweetalert2</artifactId>
-           <version>6.1.1</version>
-       </dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>sweetalert2</artifactId>
+			<version>6.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
