@@ -7,4 +7,5 @@ script:
 - mvn -Psyscall clean compile
 after_success:
   - mvn coveralls:report
+  - mvn clean cobertura:cobertura org.eluder.coveralls:syscall:report
 group: stable
