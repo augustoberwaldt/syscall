@@ -47,8 +47,8 @@
                                     <td th:text="${operador.nome}" > </td>
                                     <td th:text="${operador.grupo}" > </td>
                                     <td> 
-                                       <span th:class="${operador.ativo == 1} ? 'label label-success' : 'label label-danger'"
-                                             th:text="${operador.ativo == 1} ? 'Ativo' : 'Inativo'" >
+                                       <span th:class="${operador.ativo} ? 'label label-success' : 'label label-danger'"
+                                             th:text="${operador.ativo} ? 'Ativo' : 'Inativo'" >
                                        </span>     
                                     </td>
                                     <td>

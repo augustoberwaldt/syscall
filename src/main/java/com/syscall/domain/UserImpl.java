@@ -9,7 +9,7 @@ import java.util.Collection;
 public class UserImpl extends User{
 
 
-    Operador operador;
+    private Operador operador;
 
     public Operador getOperador() {
         return operador;
@@ -28,10 +28,18 @@ public class UserImpl extends User{
         super(username, password, authorities);
     }
 
-    public UserImpl(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-    }
 
+    public UserImpl(String username,
+                    String password,
+                    boolean enabled,
+                    boolean accountNonExpired,
+                    boolean credentialsNonExpired,
+                    boolean accountNonLocked,
+                    Collection<? extends GrantedAuthority> authorities,
+                    Operador operador) {
+        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+        this.operador = operador;
+    }
 
 
 }

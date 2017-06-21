@@ -24,13 +24,13 @@ public class Cliente {
 
     private int status;
     
-    private int ativo;
+    private boolean ativo;
     
-    public int getAtivo() {
+    public boolean getAtivo() {
 		return ativo;
 	}
 
-	public void setAtivo(int ativo) {
+	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
 

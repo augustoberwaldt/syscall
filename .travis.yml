@@ -3,10 +3,11 @@ jdk:
 - oraclejdk8
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn -Psyscall clean compile
+- mvn test jacoco:report
 after_success:
   - mvn coveralls:report
-  - mvn jacoco:report coveralls:report
-  - mvn clean cobertura:cobertura org.eluder.coveralls:syscall:report
+
 group: stable

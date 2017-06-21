@@ -53,6 +53,11 @@ public class OperadorController {
         );
     }
 
+    @GetMapping("/perfil/")
+    public ModelAndView perfil() {
+        return new ModelAndView("operator/profile");
+    }
+
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {

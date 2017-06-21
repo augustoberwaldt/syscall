@@ -12,5 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class NotificationServiceTest {
 
-     
+    @Test
+    public void testa_envio_notificacao(){
+        //TODO
+    }
 }

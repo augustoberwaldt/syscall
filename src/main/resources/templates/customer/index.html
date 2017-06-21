@@ -43,8 +43,8 @@
                                     <td th:text="${cliente.nome}" > </td>
                                     <td th:text="${cliente.link}" > </td>
                                     <td> 
-                                       <span th:class="${cliente.ativo == 1} ? 'label label-success' : 'label label-danger'"
-                                             th:text="${cliente.ativo == 1} ? 'Ativo' : 'Inativo'" >
+                                       <span th:class="${cliente.ativo} ? 'label label-success' : 'label label-danger'"
+                                             th:text="${cliente.ativo} ? 'Ativo' : 'Inativo'" >
                                        </span>     
                                     </td>
                                     <td>
