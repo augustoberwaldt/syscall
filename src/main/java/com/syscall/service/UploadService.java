@@ -22,7 +22,9 @@ public class UploadService {
         try {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(System.getProperty("user.dir")
-                    + File.separator + file.getOriginalFilename());
+                + File.separator + "src"+ File.separator +"main" + File.separator + "resources" + File.separator +
+                "static"+ File.separator + "assets" + File.separator + "img" + File.separator + "users"+File.separator
+                + file.getOriginalFilename());
             Files.write(path, bytes);
         } catch (IOException e) {
             e.printStackTrace();

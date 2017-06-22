@@ -57,6 +57,17 @@
                                 <input th:field="*{foto}" id="foto"   type="file"  />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 col-sm-1 control-label">Ativo :</label>
+                            <div class="switch has-switch">
+                                <div class="switch-off">
+                                    <input th:field="*{ativo}" type="checkbox" checked="" data-toggle="switch" />
+                                    <span class="switch-left">ON</span><label>&nbsp;</label>
+                                    <span class="switch-right">OFF</span>
+                                 </div>
+                            </div>
+                        </div>
+
                         <button  type="submit" class="btn btn-theme03">Salvar</button>
                         <a  th:href="@{/operador/}" class="btn btn-default">Voltar</a>
 
