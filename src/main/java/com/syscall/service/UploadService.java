@@ -19,18 +19,24 @@ public class UploadService {
 
     public  String  process(MultipartFile file) {
 
+    	System.out.println(getPathAssets());
         try {
             byte[] bytes = file.getBytes();
-            Path path = Paths.get(System.getProperty("user.dir")
-                + File.separator + "src"+ File.separator +"main" + File.separator + "resources" + File.separator +
-                "static"+ File.separator + "assets" + File.separator + "img" + File.separator + "users"+File.separator
-                + file.getOriginalFilename());
+            Path path = Paths.get(getPathAssets() + "img" + File.separator + "users" + File.separator
+                    + file.getOriginalFilename());
             Files.write(path, bytes);
         } catch (IOException e) {
-            e.printStackTrace();
+           
         }
 
         return !file.getOriginalFilename().isEmpty() ? file.getOriginalFilename() : "" ;
+    }
+    
+    public String getPathAssets() {
+    	return 	System.getProperty("user.dir")
+                + File.separator + "src"
+        		+ File.separator +"main" + File.separator + "resources" + File.separator 
+        		+ "static"+ File.separator + "assets" + File.separator;
     }
 
 }
