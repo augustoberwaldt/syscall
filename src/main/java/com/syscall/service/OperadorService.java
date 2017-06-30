@@ -26,11 +26,12 @@ public class OperadorService {
      * @param operador
      */
     public void save(Operador operador) {
-    	if (operador.getId() == null) {
+    	
+    	Long id = operador.getId();
+        this.operadorRepository.save(operador);
+        if (id == null) {
     		this.accountUserDetailsService.sendPasswordMail(operador.getEmail());   	
     	}
-    	
-        this.operadorRepository.save(operador);
     }
 
     /**
