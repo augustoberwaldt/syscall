@@ -13,9 +13,12 @@ import java.util.List;
 public class OperadorService {
 
     private final OperadorRepository operadorRepository;
+    private final AccountUserDetailsService accountUserDetailsService;
+    
 
-    public  OperadorService(OperadorRepository operadorRepository) {
+    public  OperadorService(OperadorRepository operadorRepository, AccountUserDetailsService accountUserDetailsService) {
         this.operadorRepository = operadorRepository;
+        this.accountUserDetailsService = accountUserDetailsService;
     }
 
     /**
@@ -23,6 +26,10 @@ public class OperadorService {
      * @param operador
      */
     public void save(Operador operador) {
+    	if (operador.getId() == null) {
+    		this.accountUserDetailsService.sendPasswordMail(operador.getEmail());   	
+    	}
+    	
         this.operadorRepository.save(operador);
     }
 
