@@ -1,7 +1,7 @@
  <div id="sidebar"  class="nav-collapse ">
     <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered">
-            <a th:href="@{/operador/perfil/}">
+            <a th:href="@{/operador/perfil/} + ${#authentication.getPrincipal().operador.id}">
                 <img th:src="'/assets/img/users/' + ${#authentication.getPrincipal().operador.foto}" class="img-circle" width="60" />
             </a>
         </p>
