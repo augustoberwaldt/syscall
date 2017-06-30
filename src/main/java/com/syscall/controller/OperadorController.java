@@ -53,9 +53,12 @@ public class OperadorController {
         );
     }
 
-    @GetMapping("/perfil/")
-    public ModelAndView perfil() {
-        return new ModelAndView("operator/profile");
+    @GetMapping("/perfil/{id}")
+    public ModelAndView perfil(@PathVariable Long id) {
+        return new ModelAndView("operator/profile").addObject(
+                "operador",
+                this.operadorService.get(id)
+        );
     }
 
 
