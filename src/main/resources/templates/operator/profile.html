@@ -9,35 +9,33 @@
       <section layout:fragment="content"  id="main-content">
                  
         <section class="wrapper site-min-height">
-        <h3><i class="fa fa-angle-right"></i> Perfil </h3>
+        <h3 th:text="#{operator.title.profile} + '  ' + ${#authentication.getPrincipal().operador.nome}"><i class="fa fa-angle-right"></i>  </h3>
         <div class="row mt">
             <div class="col-lg-12">
-				 
 				 <div  th:if="${message}" 
 				     class="message-error-success alert alert-success">
 						<p th:text="${message}" />
 				 </div>
-							
                 <div class="form-panel">
                     <h4 class="mb" th:text="${'Alterar Senha'}"><i class="fa fa-angle-right"></i>  </h4>
-                    <form enctype="multipart/form-data" th:object="${operador}"  th:action="@{/operador/save}" class="form-horizontal style-form" method="post">
-                        <input type="hidden" th:field="*{id}" />
-                        <div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                    <form th:action="@{/operador/perfil/save}"  class="form-horizontal style-form" method="post">
+                        <input type="hidden" name="id" th:value="${id}" />
+                        <div class="form-group" >
                             <label class="col-sm-1 col-sm-1 control-label">Senha Atual :</label>
                             <div class="col-sm-6">
-                                <input th:field="*{senha}" id="nome"   type="password" class="form-control" />
+                                <input name="current_password" id="nome"   type="password" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                        <div class="form-group" >
                             <label class="col-sm-1 col-sm-1 control-label">Nova Senha :</label>
                             <div class="col-sm-6">
-                                <input th:field="*{senha}" id="nome"   type="password" class="form-control" />
+                                <input name="new_password" id="new_password"   type="password" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-group" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                        <div class="form-group" >
                             <label class="col-sm-1 col-sm-1 control-label">Reptira Senha :</label>
                             <div class="col-sm-6">
-                                <input th:field="*{senha}" id="nome"   type="password" class="form-control" />
+                                <input name="confirmation_password" id="confirmation_password"   type="password" class="form-control" />
                             </div>
                         </div>
                         <button  type="submit" class="btn btn-theme03">Salvar</button>

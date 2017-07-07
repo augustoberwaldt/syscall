@@ -5,6 +5,9 @@ import com.syscall.domain.Operador;
 import com.syscall.service.ClienteService;
 import com.syscall.service.OperadorService;
 import com.syscall.service.UploadService;
+
+import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -55,10 +59,26 @@ public class OperadorController {
 
     @GetMapping("/perfil/{id}")
     public ModelAndView perfil(@PathVariable Long id) {
-        return new ModelAndView("operator/profile").addObject(
-                "operador",
-                this.operadorService.get(id)
-        );
+        return new ModelAndView("operator/profile").addObject("id", id);
+    }
+
+    @PostMapping(value="/perfil/save",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String save(@RequestParam("current_password") String current_password,
+    		           @RequestParam("new_password") String new_password,
+    		           @RequestParam("confirmation_password") String confirmation_password,
+    		           @RequestParam("id")  Long id,  RedirectAttributes redirectAttrs) {
+
+    	Operador operador =  this.operadorService.get(id);   
+    	
+    	String encrypt_current_passowd = new  BCryptPasswordEncoder().encode(current_password); 
+    	if (new_password.equalsIgnoreCase(confirmation_password) ) {
+    		operador.setSenha(new BCryptPasswordEncoder().encode(new_password));
+    		this.operadorService.save(operador);
+     	    redirectAttrs.addFlashAttribute("message", "cascascascascasc");
+    	}
+    	
+
+        return "redirect:/operador/perfil/" + id ;
     }
 
 

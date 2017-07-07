@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      lang="en" layout:decorator="layouts/main">
+<body>
+
+	<div layout:fragment="content">
+        <section class="content-header">
+            <h1>
+                <span th:text="#{error.text.title}"></span>
+                <small><span th:text="#{error.title.description}"/></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Ops</a></li>
+                <li><a href="#">Error</a></li>
+                <li class="active">Error</li>
+            </ol>
+        </section>
+        <section class="content">
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Responsive Hover Table</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th th:text="#{error.text.key}">Key</th>
+                                    <th th:text="#{error.text.value}">Value</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="#{error.text.timestamp}">TimeStamp</td>
+                                    <td th:text="${timestamp}"></td>
+                                </tr>
+                                <tr>
+                                    <td th:text="#{error.text.status}">Status</td>
+                                    <td th:text="${status}"></td>
+                                </tr>
+                                <tr>
+                                    <td th:text="#{error.text.message}">Message</td>
+                                    <td th:text="${message}"></td>
+                                </tr>
+                                <tr>
+                                    <td th:text="#{error.text.error}">Error</td>
+                                    <td th:text="${error}"></td>
+                                </tr>
+                                <tr>
+                                    <td th:text="#{error.text.path}">Path</td>
+                                    <td th:text="${path}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </section>
+
+	</div>
+</body>
+
+</html>
