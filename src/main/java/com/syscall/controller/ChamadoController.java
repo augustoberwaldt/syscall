@@ -14,5 +14,9 @@ public class ChamadoController {
         return  new  ModelAndView("call/index");
     }
 
+    @GetMapping("/create")
+    public ModelAndView create() {
+        return  new  ModelAndView("call/add_edit");
+    }
 
 }

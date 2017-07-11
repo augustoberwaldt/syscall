@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      lang="en" layout:decorator="layouts/main">
+
+<body>
+
+<section layout:fragment="content"  id="main-content">
+    <section class="wrapper site-min-height">
+        <h3 th:text="#{call.title}"  ><i class="fa fa-angle-right"></i> </h3>
+        <div class="row mt">
+            <div class="col-lg-12">
+				 
+				 <div  th:if="${message}" 
+				     class="message-error-success alert alert-success">
+						<p th:text="${message}" />
+				 </div>
+							
+                <div class="form-panel">
+                    <h4 th:text="#{call.subTitleCreate}" class="mb"><i class="fa fa-angle-right"></i> </h4>
+                    <form enctype="multipart/form-data" th:action="@{/operador/save}" class="form-horizontal style-form" method="post">
+                       
+                        <div class="form-group" >
+                            <label class="col-sm-1 col-sm-1 control-label">Titulo :</label>
+                            <div class="col-sm-8">
+                                <input name="titulo" id="titulo"   type="text" class="form-control" />
+                            </div>
+                        </div>
+                         <div class="form-group" >
+                            <label class="col-sm-1 col-sm-1 control-label">Descrição :</label>
+                            <div class="col-sm-8">
+                                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                </textarea>
+                            </div>
+                        </div>
+                      
+                        <button  type="submit" class="btn btn-theme03">Salvar</button>
+                        <a  th:href="@{/call/}" class="btn btn-default">Voltar</a>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<th:block layout:fragment="js-view">
+      <script type="text/javascript" src="/webjars/ckeditor/4.7.0/basic/ckeditor.js"></script>
+       <script type="text/javascript" src="/assets/js/calls/add_edit.js"></script>
+</th:block>
+
+</body>
+</html>
