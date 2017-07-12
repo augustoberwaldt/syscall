@@ -33,7 +33,7 @@ public class ChamadoController {
 	
     @GetMapping("/")
     public ModelAndView report() {
-        return  new  ModelAndView("call/index");
+        return  new  ModelAndView("call/index").addObject("chamados", this.chamadoService.getAll());
     }
 
     

@@ -24,13 +24,28 @@
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
-                                <th th:text="#{operator.table.name}"  class="hidden-phone"><i class="fa fa-question-circle"></i> </th>
-                                <th th:text="#{operator.table.group}" ><i class="fa fa-bookmark" ></i></th>
-                                <th><i class=" fa fa-edit"></i> Status</th>
+                                <th  class="hidden-phone"><i class="fa fa-question-circle"></i> Código </th>
+                                <th  ><i class="fa fa-bookmark" ></i>  Assunto </th>
+                                <th><i class=" fa fa-edit"></i> Tipo</th>
+                               <th><i class=" fa fa-edit"></i> Status</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
+                             <tr th:each="chamado : ${chamados}">
+                             		<td th:text="${chamado.id}" > </td>
+                             		<td th:text="${chamado.assunto}" > </td>
+                             		<td th:text="${chamado.tipo}" > </td>
+                             		<td  > </td>
+                             		<td>
+                                        <a id="editar_operador" th:href="@{/call/edit/}" class="btn btn-primary btn-xs">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                         <a id="deletar_operador"  th:href="@{/call/delete/}" class="btn btn-danger btn-xs" >
+                                            <i class="fa fa-trash-o "></i>
+                                        </a>
+                                    </td>
+                             </tr>
                                
                             </tbody>
                         </table>

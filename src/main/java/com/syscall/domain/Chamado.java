@@ -17,9 +17,20 @@ public class Chamado {
     
     private String descricao;
     
+    private String  Tipo;
+    
     private Date data;
     
     private int status;
+
+    
+	public String getTipo() {
+		return Tipo;
+	}
+
+	public void setTipo(String tipo) {
+		Tipo = tipo;
+	}
 
 	public String getAssunto() {
 		return assunto;
