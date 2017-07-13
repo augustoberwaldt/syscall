@@ -38,7 +38,7 @@
                              		<td th:text="${chamado.tipo}" > </td>
                              		<td  > </td>
                              		<td>
-                                        <a id="editar_operador" th:href="@{/call/edit/}" class="btn btn-primary btn-xs">
+                                        <a id="editar_operador" th:href="@{/call/edit/} + ${chamado.id}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                          <a id="deletar_operador"  th:href="@{/call/delete/}" class="btn btn-danger btn-xs" >

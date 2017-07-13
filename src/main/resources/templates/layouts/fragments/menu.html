@@ -32,7 +32,7 @@
             </a>
 
         </li>
-        <li class="mt">
+        <li sec:authorize="hasRole('ROLE_ADMIN')"  class="mt">
             <a th:href="@{/operador/}" >
                 <i class="fa fa-users"></i>
                 <span th:text="#{menu.operator}"> </span>
