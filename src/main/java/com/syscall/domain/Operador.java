@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -14,6 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import com.syscall.domain.Cliente;
 import static javax.persistence.TemporalType.TIMESTAMP;
@@ -36,16 +38,30 @@ public class Operador {
 
     private String senha;
 
-    
-    @OneToMany
-    private Cliente Cliente;
 
     private int status;
     
     @NotNull
     private boolean ativo;
     
+	@NotNull
+    private String grupo;
 
+    private String foto;
+    
+    @ManyToOne
+    private Cliente cliente;
+    
+    public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	
+    
     public boolean getAtivo() {
 		return ativo;
 	}
@@ -53,12 +69,7 @@ public class Operador {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-
-	@NotNull
-    private String grupo;
-
-    private String foto;
-
+    
     public String getFoto() {
         return foto;
     }
@@ -67,13 +78,7 @@ public class Operador {
         this.foto = foto;
     }
 
-    public Cliente getCliente() {
-        return Cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        Cliente = cliente;
-    }
+  
 
     public String getGrupo() {
         return grupo;

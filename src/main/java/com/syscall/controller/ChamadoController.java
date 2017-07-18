@@ -70,9 +70,8 @@ public class ChamadoController {
         	chamado.setStatus(1);
         	
         	chamado.setOperador(operador);
-        	
         	chamado.setCliente(
-        			clienteService.get(operador.getCliente().getId()) 
+        			operador.getCliente()
         	);
         	
 			this.chamadoService.save(chamado);

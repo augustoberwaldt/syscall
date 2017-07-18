@@ -30,7 +30,27 @@ public class Cliente {
     @OneToMany()
     private List<Chamado> chamados;
     
+    @OneToMany()
+    private List<Operador> operadores;
+    
     private boolean ativo;
+    
+    public List<Chamado> getChamados() {
+		return chamados;
+	}
+
+	public void setChamados(List<Chamado> chamados) {
+		this.chamados = chamados;
+	}
+
+	public List<Operador> getOperadores() {
+		return operadores;
+	}
+
+	public void setOperadores(List<Operador> operadores) {
+		this.operadores = operadores;
+	}
+	
     
     public boolean getAtivo() {
 		return ativo;
