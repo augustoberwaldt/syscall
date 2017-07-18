@@ -1,8 +1,10 @@
 package com.syscall.controller;
 
+import java.security.Principal;
 import java.util.Locale;
 
 import javax.validation.Valid;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.syscall.config.Messages;
 import com.syscall.domain.Chamado;
 import com.syscall.domain.Cliente;
+import com.syscall.domain.Operador;
+import com.syscall.service.AccountUserDetailsService;
 import com.syscall.service.ChamadoService;
 import com.syscall.service.ClienteService;
 
@@ -25,9 +29,17 @@ public class ChamadoController {
 
 	private final ChamadoService chamadoService;
 
-
-    public ChamadoController(ChamadoService chamadoService) {
+	private final ClienteService clienteService;
+	
+	private final AccountUserDetailsService accountUserDetailsService;
+	
+	public ChamadoController(ChamadoService chamadoService,
+			ClienteService clienteService,
+			AccountUserDetailsService accountUserDetailsService) {
         this.chamadoService =  chamadoService;
+        this.clienteService =  clienteService;
+        
+        this.accountUserDetailsService =  accountUserDetailsService;
     }
 	
 	
@@ -45,10 +57,24 @@ public class ChamadoController {
     @PostMapping("/save")
     public String save(@Valid Chamado chamado,
 					   BindingResult bindingResult,
-    		           RedirectAttributes redirectAttrs, Locale locale) {
+    		           RedirectAttributes redirectAttrs,
+    		           Locale locale, Principal  principal) {
 
+    	
         if (!bindingResult.hasErrors()) {
+        	
+        	Operador operador =  accountUserDetailsService.getUserByUserName(
+        			principal.getName()
+        	);
+        	
         	chamado.setStatus(1);
+        	
+        	chamado.setOperador(operador);
+        	
+        	chamado.setCliente(
+        			clienteService.get(operador.getCliente().getId()) 
+        	);
+        	
 			this.chamadoService.save(chamado);
     	    redirectAttrs.addFlashAttribute("message", Messages.get("messages.save", locale));
     	}
@@ -62,5 +88,9 @@ public class ChamadoController {
 		 Chamado chamado = this.chamadoService.get(id);
 	     return new ModelAndView("call/add_edit").addObject("chamado", chamado);
 	 }
+    
+    
+   
+    
     
 }

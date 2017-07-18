@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Chamado {
@@ -19,11 +21,33 @@ public class Chamado {
     
     private String  Tipo;
     
+    @ManyToOne
+    private Operador operador;
+    
+    @ManyToOne
+    private Cliente  cliente;
+    
     private Date data;
     
     private int status;
 
     
+	public Operador getOperador() {
+		return operador;
+	}
+
+	public void setOperador(Operador operador) {
+		this.operador = operador;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public String getTipo() {
 		return Tipo;
 	}
@@ -67,5 +91,7 @@ public class Chamado {
 	public Long getId() {
 		return id;
 	}
+
+	
     
 }

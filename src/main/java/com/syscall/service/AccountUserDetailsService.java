@@ -72,4 +72,11 @@ public class AccountUserDetailsService implements UserDetailsService {
         this.operadorRepository.save(operador);    
     }
     
+    
+    public Operador getUserByUserName(String userName) {
+    	
+    	return this.operadorRepository.findOneByEmail(userName);  
+    }
+    
+    
 }

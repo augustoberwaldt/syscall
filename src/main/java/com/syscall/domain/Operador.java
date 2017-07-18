@@ -36,8 +36,9 @@ public class Operador {
 
     private String senha;
 
+    
     @OneToMany
-    private Set<Cliente> Cliente;
+    private Cliente Cliente;
 
     private int status;
     
@@ -66,11 +67,11 @@ public class Operador {
         this.foto = foto;
     }
 
-    public Set<Cliente> getCliente() {
+    public Cliente getCliente() {
         return Cliente;
     }
 
-    public void setCliente(Set<Cliente> cliente) {
+    public void setCliente(Cliente cliente) {
         Cliente = cliente;
     }
 

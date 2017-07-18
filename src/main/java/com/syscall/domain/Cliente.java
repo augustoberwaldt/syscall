@@ -1,8 +1,11 @@
 package com.syscall.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Created by harley on 02/06/2017.
@@ -23,6 +26,9 @@ public class Cliente {
     private String telefone;
 
     private int status;
+    
+    @OneToMany()
+    private List<Chamado> chamados;
     
     private boolean ativo;
     
