@@ -49,4 +49,10 @@ public class ChamadoService {
 	        return this.chamadoRepository.findOne(id);
 	    }
 	
+	    public List<Chamado> getCallsByUser(Long idUser) {
+
+	        return this.chamadoRepository.findAllByOperador_Id(idUser);
+	    }
+	 	    
+	    
 }

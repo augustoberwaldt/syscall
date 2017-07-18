@@ -2,6 +2,7 @@ package com.syscall.controller;
 
 
 
+import com.syscall.service.ChamadoService;
 import com.syscall.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,10 +17,14 @@ import java.util.Map;
 
 @Controller
 public class HomeController {
+	
 	private  final NotificationService notificationService;
 
-	HomeController(NotificationService notificationService) {
+	private final ChamadoService chamadoService;
+	
+	HomeController(NotificationService notificationService, ChamadoService chamadoService) {
 		this.notificationService =  notificationService;
+		this.chamadoService      =  chamadoService;
 	}
 
 	@Autowired
@@ -30,9 +35,12 @@ public class HomeController {
 	}
 
 	@GetMapping("/home")
-	public String home() {
+	public ModelAndView home() {
 
-		return  "home";
+		return  new ModelAndView("home")
+				.addObject("chamados", chamadoService.getCallsByUser(
+				     1L      
+				));
 	}
 
 }
