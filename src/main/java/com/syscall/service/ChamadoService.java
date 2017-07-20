@@ -51,7 +51,7 @@ public class ChamadoService {
 	
 	    public List<Chamado> getCallsByUser(Long idUser) {
 
-	        return this.chamadoRepository.findAllByOperador_Id(idUser);
+	        return this.chamadoRepository.findAllByResponsavel_Id(idUser);
 	    }
 	 	    
 	    

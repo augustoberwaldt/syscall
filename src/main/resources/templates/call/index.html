@@ -41,9 +41,13 @@
                                         <a id="editar_operador" th:href="@{/call/edit/} + ${chamado.id}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                         <a id="deletar_operador"  th:href="@{/call/delete/}" class="btn btn-danger btn-xs" >
+                                        <a id="deletar_operador"  th:href="@{/call/delete/}" class="btn btn-danger btn-xs" >
                                             <i class="fa fa-trash-o "></i>
                                         </a>
+                                        <a id="deletar_operador"  th:href="@{/call/view/} + ${chamado.id}" class="btn btn-warning btn-xs" >
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        
                                     </td>
                              </tr>
                                

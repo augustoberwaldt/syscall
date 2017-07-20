@@ -54,6 +54,15 @@ public class ChamadoController {
         return  new  ModelAndView("call/add_edit").addObject("chamado", new Chamado());
     }
 
+    @GetMapping("/view/{id}")
+    public ModelAndView view(@PathVariable Long id) {
+        return  new  ModelAndView("call/view")
+        		.addObject("chamado", this.chamadoService.get(id))
+                .addObject("interacoes", null);
+    }
+
+    
+    
     @PostMapping("/save")
     public String save(@Valid Chamado chamado,
 					   BindingResult bindingResult,
@@ -69,7 +78,6 @@ public class ChamadoController {
         	
         	chamado.setStatus(1);
         	
-        	chamado.setOperador(operador);
         	chamado.setCliente(
         			operador.getCliente()
         	);

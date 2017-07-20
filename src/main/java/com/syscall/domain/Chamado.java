@@ -22,7 +22,7 @@ public class Chamado {
     private String  Tipo;
     
     @ManyToOne
-    private Operador operador;
+    private Operador responsavel;
     
     @ManyToOne
     private Cliente  cliente;
@@ -31,13 +31,13 @@ public class Chamado {
     
     private int status;
 
-    
-	public Operador getOperador() {
-		return operador;
+   
+	public Operador getResponsavel() {
+		return responsavel;
 	}
 
-	public void setOperador(Operador operador) {
-		this.operador = operador;
+	public void setResponsavel(Operador responsavel) {
+		this.responsavel = responsavel;
 	}
 
 	public Cliente getCliente() {

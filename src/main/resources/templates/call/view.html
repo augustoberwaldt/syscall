@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      lang="en" layout:decorator="layouts/main">
+
+<body>
+	<section layout:fragment="content"  id="main-content">
+	  <section class="wrapper site-min-height">
+	     <h3><i class="fa fa-angle-right"></i> Chamado : 0002312312</h3>
+	     <div class="row mt">
+            <div class="col-lg-12">
+                 <div class="form-panel">
+                        Assunto :
+                        <span th:text="${chamado.assunto}"> </span> 
+                        <br/>
+                        Tipo :
+                        <br/>   
+                        Descrição :
+                        <span th:text="${chamado.descricao}"> </span>
+                 </div>
+            </div>
+         </div>
+	  </section>
+	</section>
+</body>
+</html>

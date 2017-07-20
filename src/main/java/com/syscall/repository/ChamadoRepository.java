@@ -16,6 +16,6 @@ import java.util.Optional;
 public  interface  ChamadoRepository  extends JpaRepository<Chamado, Long> {
 
 	
-	List <Chamado> findAllByOperador_Id(Long idUser);
+	List <Chamado> findAllByResponsavel_Id(Long idUser);
 	
 }
