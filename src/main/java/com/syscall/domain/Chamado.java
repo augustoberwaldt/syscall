@@ -1,6 +1,7 @@
 package com.syscall.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,8 +31,19 @@ public class Chamado {
     private Date data;
     
     private int status;
+    
+    @OneToMany
+    private List<Interacao> interacoes;
 
    
+	public List<Interacao> getInteracoes() {
+		return interacoes;
+	}
+
+	public void setInteracoes(List<Interacao> interacoes) {
+		this.interacoes = interacoes;
+	}
+
 	public Operador getResponsavel() {
 		return responsavel;
 	}
