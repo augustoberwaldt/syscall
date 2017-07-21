@@ -1,6 +1,6 @@
 INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(1,1,'teste@freecs.com','Freecs',1,'345446562', 'freecs.com');
 INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(2,1,'teste@google.com','Google',1,'345446562', 'google.com');
-INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(3,1,'syscall@gmail.com','Google',1,'345446562', 'syscall.com.br');
+INSERT INTO  CLIENTE(ID, ATIVO,EMAIL, NOME,STATUS, TELEFONE, LINK) values(3,1,'syscall@gmail.com','SYSCALL',1,'345446562', 'syscall.com.br');
 
 
 
