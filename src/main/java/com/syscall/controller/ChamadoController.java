@@ -24,6 +24,7 @@ import com.syscall.domain.Operador;
 import com.syscall.service.AccountUserDetailsService;
 import com.syscall.service.ChamadoService;
 import com.syscall.service.ClienteService;
+import com.syscall.service.OperadorService;
 
 
 @Controller
@@ -34,6 +35,7 @@ public class ChamadoController {
 
 	private final ClienteService clienteService;
 	
+	private final OperadorService operadorService;
 	
 	
 	private final AccountUserDetailsService accountUserDetailsService;
@@ -41,11 +43,12 @@ public class ChamadoController {
 	
 	public ChamadoController(ChamadoService chamadoService,
 			ClienteService clienteService,
-			AccountUserDetailsService accountUserDetailsService
-			
+			AccountUserDetailsService accountUserDetailsService,
+			OperadorService operadorService
 			) {
         this.chamadoService =  chamadoService;
         this.clienteService =  clienteService;
+        this.operadorService =  operadorService;
 
         
         this.accountUserDetailsService =  accountUserDetailsService;
@@ -118,6 +121,8 @@ public class ChamadoController {
     	 Interacao interacao =  new Interacao();
     	 
     	 interacao.setComentario(comentario);
+    	 
+    	 interacao.setOperador(this.operadorService.get(idOperador));
     	 
     	 chamado.getInteracoes().add(interacao);
     	

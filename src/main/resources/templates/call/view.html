@@ -25,6 +25,10 @@
          <div  th:each = "interacao : ${interacoes}" class="row mt">
             <div class="col-lg-10">
                  <div   class="form-panel">
+                       <p>
+                           <img th:src="${'/assets/img/users/' + interacao.operador.foto}" class="img-circle" width="50" />
+                           <b th:text="${interacao.operador.nome}"> </b>
+                       </p>
                        <div  th:utext="${interacao.comentario}"> 
                        </div>  
                  </div>
