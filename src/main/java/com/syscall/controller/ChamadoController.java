@@ -12,16 +12,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.syscall.config.Messages;
 import com.syscall.domain.Chamado;
 import com.syscall.domain.Cliente;
+import com.syscall.domain.Interacao;
 import com.syscall.domain.Operador;
 import com.syscall.service.AccountUserDetailsService;
 import com.syscall.service.ChamadoService;
 import com.syscall.service.ClienteService;
+
 
 @Controller
 @RequestMapping("/call")
@@ -31,13 +34,19 @@ public class ChamadoController {
 
 	private final ClienteService clienteService;
 	
+	
+	
 	private final AccountUserDetailsService accountUserDetailsService;
+	
 	
 	public ChamadoController(ChamadoService chamadoService,
 			ClienteService clienteService,
-			AccountUserDetailsService accountUserDetailsService) {
+			AccountUserDetailsService accountUserDetailsService
+			
+			) {
         this.chamadoService =  chamadoService;
         this.clienteService =  clienteService;
+
         
         this.accountUserDetailsService =  accountUserDetailsService;
     }
@@ -56,9 +65,11 @@ public class ChamadoController {
 
     @GetMapping("/view/{id}")
     public ModelAndView view(@PathVariable Long id) {
-        return  new  ModelAndView("call/view")
-        		.addObject("chamado", this.chamadoService.get(id))
-                .addObject("interacoes", null);
+        Chamado chamado = this.chamadoService.get(id);
+    	return  new  ModelAndView("call/view")
+        		.addObject("chamado", chamado)
+                .addObject("interacoes", chamado.getInteracoes())
+                .addObject("interacao", new Interacao());
     }
 
     
@@ -95,7 +106,25 @@ public class ChamadoController {
 		 Chamado chamado = this.chamadoService.get(id);
 	     return new ModelAndView("call/add_edit").addObject("chamado", chamado);
 	 }
-    
+     
+     @PostMapping("/saveInteration")
+     public String saveInteration(@RequestParam("id") Long id,
+    		                      @RequestParam("idOperador") Long idOperador,
+    		                      @RequestParam("comentario") String comentario) {
+    	 
+    	 
+    	 Chamado chamado  = this.chamadoService.get(id);
+    			 
+    	 Interacao interacao =  new Interacao();
+    	 
+    	 interacao.setComentario(comentario);
+    	 
+    	 chamado.getInteracoes().add(interacao);
+    	
+    	 this.chamadoService.save(chamado);
+    	 
+    	 return "redirect:/call/view/" + id;
+     }
     
    
     

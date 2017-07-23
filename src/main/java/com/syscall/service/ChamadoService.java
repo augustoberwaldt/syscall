@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 
 import com.syscall.domain.Chamado;
 import com.syscall.domain.Cliente;
+import com.syscall.domain.Interacao;
 import com.syscall.domain.Operador;
 import com.syscall.repository.ChamadoRepository;
 import com.syscall.repository.ClienteRepository;
+import com.syscall.repository.InteracaoRepository;
 import com.syscall.repository.OperadorRepository;
 
 @Service
@@ -17,8 +19,12 @@ public class ChamadoService {
 
 	    private final ChamadoRepository chamadoRepository;
 
-	    public  ChamadoService(ChamadoRepository chamadoRepository) {
+	    private final InteracaoRepository interacaoRepository;
+	    
+	    public  ChamadoService(ChamadoRepository chamadoRepository,
+	    		InteracaoRepository interacaoRepository) {
 	        this.chamadoRepository = chamadoRepository;
+	        this.interacaoRepository = interacaoRepository; 
 	    }
 	
 	    
@@ -53,6 +59,9 @@ public class ChamadoService {
 
 	        return this.chamadoRepository.findAllByResponsavel_Id(idUser);
 	    }
+
+
+		
 	 	    
 	    
 }

@@ -22,38 +22,36 @@
             </div>
          </div>
          
-         <div  th:each = "interacoa : ${interacoes}" class="row mt">
+         <div  th:each = "interacao : ${interacoes}" class="row mt">
             <div class="col-lg-10">
                  <div   class="form-panel">
-                       <div  th:utext="${chamado.descricao}"> 
+                       <div  th:utext="${interacao.comentario}"> 
                        </div>  
                  </div>
             </div>
          </div>
          <div class="row mt">
 	         <div class="col-lg-10">
-	             <div   class="form-panel">
-	                   <form  class="form-horizontal style-form" method="post">
+	             <div class="form-panel">
+	                   <form th:action="@{/call/saveInteration}" class="form-horizontal style-form" method="post">
+	                        <input name="id" type="hidden" th:value="${id}" />
+	                        <input name="idOperador" type="hidden" th:value="${#authentication.getPrincipal().operador.id}" />
 	                        <div class="form-group" >
 	                            <div class="col-sm-12">
-	                                <textarea  id="editor1" rows="10" cols="80">
+	                                <textarea name="comentario" id="editor1" rows="10" cols="80">
 	                                </textarea>
 	                            </div>
 	                        </div>
+	                        <div class="form-group " >
+		   	                   <div class="col-lg-12">
+		   	                        <button th:text="'Incluir Comentário'"  type="submit" class="btn btn-theme02">  
+		   	                         </button>    
+		   	                   </div>	
+                           </div>
 	                   </form>  
 	             </div>             
 	         </div>
 		 </div>
-         <div class="col-lg-10">
-		   	 <div class="pull-right">
-		   	       <button th:text="'Cancelar'"  type="button" class="btn btn-default">
-		   	            
-		   	       </button>
-		   	       <button th:text="'Incluir Comentário'"  type="button" class="btn btn-theme02">
-		   	         
-		   	       </button>
-		   	  </div>	
-         </div>
 	  </section>
 	</section>
 	<th:block layout:fragment="js-view">

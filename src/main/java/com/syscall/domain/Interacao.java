@@ -14,18 +14,45 @@ public class Interacao {
     @Id
     @GeneratedValue
     private Long id;
+   
+    
+    private String comentario;      
+    
+    @ManyToOne
+    private Operador operador;      
+    
+   
 
-    @ManyToOne	
-    private Chamado chamado;      
+
+	private Date data;
     
-    
-	public Chamado getChamado() {
-		return chamado;
+	public Date getData() {
+		return data;
 	}
 
 
-	public void setChamado(Chamado chamado) {
-		this.chamado = chamado;
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+
+	public Operador getOperador() {
+		return operador;
+	}
+
+
+	public void setOperador(Operador operador) {
+		this.operador = operador;
+	}
+
+
+	public String getComentario() {
+		return comentario;
+	}
+
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 

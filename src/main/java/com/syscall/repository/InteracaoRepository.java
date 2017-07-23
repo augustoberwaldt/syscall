@@ -14,10 +14,8 @@ import java.util.Optional;
  * Created by harley on 27/05/2017.
  */
 @Repository
-public  interface  ChamadoRepository  extends JpaRepository<Chamado, Long> {
+public  interface  InteracaoRepository  extends JpaRepository<Interacao, Long> {
 
 	
-	List <Chamado> findAllByResponsavel_Id(Long idUser);
-
-
+	
 }

@@ -66,15 +66,16 @@ public class OperadorController {
     public String save(@RequestParam("current_password") String current_password,
     		           @RequestParam("new_password") String new_password,
     		           @RequestParam("confirmation_password") String confirmation_password,
-    		           @RequestParam("id")  Long id,  RedirectAttributes redirectAttrs) {
+    		           @RequestParam("id")  Long id,  RedirectAttributes redirectAttrs, Locale locale) {
 
     	Operador operador =  this.operadorService.get(id);   
     	
-    	String encrypt_current_passowd = new  BCryptPasswordEncoder().encode(current_password); 
+    	String encrypt_current_passowd = new  BCryptPasswordEncoder()
+    			                              .encode(current_password); 
     	if (new_password.equalsIgnoreCase(confirmation_password) ) {
     		operador.setSenha(new BCryptPasswordEncoder().encode(new_password));
     		this.operadorService.save(operador);
-     	    redirectAttrs.addFlashAttribute("message", "cascascascascasc");
+    		redirectAttrs.addFlashAttribute("message", Messages.get("messages.save", locale));
     	}
     	
 
