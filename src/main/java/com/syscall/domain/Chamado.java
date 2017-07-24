@@ -21,7 +21,11 @@ public class Chamado {
     
     private String descricao;
     
-    private String  Tipo;
+    private int  tipo;
+    
+    @ManyToOne
+    private Operador criador;
+    
     
     @ManyToOne
     private Operador responsavel;
@@ -33,7 +37,17 @@ public class Chamado {
     
     private int status;
     
-    @OneToMany(cascade = {CascadeType.ALL})
+    
+    
+    public Operador getCriador() {
+		return criador;
+	}
+
+	public void setCriador(Operador criador) {
+		this.criador = criador;
+	}
+
+	@OneToMany(cascade = {CascadeType.ALL})
     private List<Interacao> interacoes;
 
    
@@ -61,12 +75,12 @@ public class Chamado {
 		this.cliente = cliente;
 	}
 
-	public String getTipo() {
-		return Tipo;
+	public int getTipo() {
+		return tipo;
 	}
 
-	public void setTipo(String tipo) {
-		Tipo = tipo;
+	public void setTipo(int tipo) {
+		tipo = tipo;
 	}
 
 	public String getAssunto() {

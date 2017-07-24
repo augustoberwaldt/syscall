@@ -1,5 +1,6 @@
 package com.syscall.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -33,6 +34,8 @@ public class ChamadoService {
 	     * @param chamado
 	     */
 	    public void save(Chamado chamado) {
+	    	
+	    	chamado.setData(new Date());
 	        this.chamadoRepository.save(chamado);
 	    }
 	    

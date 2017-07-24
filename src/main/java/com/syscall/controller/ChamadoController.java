@@ -1,6 +1,7 @@
 package com.syscall.controller;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -92,6 +93,8 @@ public class ChamadoController {
         	
         	chamado.setStatus(1);
         	
+        	chamado.setCriador(operador);
+        	
         	chamado.setCliente(
         			operador.getCliente()
         	);
@@ -119,6 +122,8 @@ public class ChamadoController {
     	 Chamado chamado  = this.chamadoService.get(id);
     			 
     	 Interacao interacao =  new Interacao();
+    	 
+    	 interacao.setData(new Date());
     	 
     	 interacao.setComentario(comentario);
     	 

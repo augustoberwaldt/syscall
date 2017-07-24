@@ -10,14 +10,24 @@
 	     <h3 th:text="'Chamado : ' + ${chamado.id}" ><i class="fa fa-angle-right"></i> </h3>
 	     <div class="row mt">
             <div class="col-lg-10">
+                
                  <div class="form-panel">
-                        Assunto :
-                        <span th:text="${chamado.assunto}"> </span> 
-                        <br/>
-                        Tipo :
-                        <br/>   
-                        Descrição :
-                        <span th:utext="${chamado.descricao}"> </span>
+                       <div> 
+                           <p>
+                     <img th:src="${'/assets/img/users/' + chamado.criador.foto}" class="img-circle" width="50" />&nbsp;
+                     <b th:text="${chamado.criador.nome}"> </b>  -  <b th:text=" 'Criado em : &nbsp;' + ${#dates.format(chamado.data, 'dd/MM/yyyy  HH:mm')}" >  </b>
+                 </p>
+                       </div>
+                       <br/>
+                       <div>
+                           Assunto :
+                          <span th:text="${chamado.assunto}"> </span> 
+                          <br/>
+                          Tipo :
+                          <br/>   
+                          Descrição :
+                          <span th:utext="${chamado.descricao}"> </span>
+                       </div>
                  </div>
             </div>
          </div>
@@ -25,10 +35,13 @@
          <div  th:each = "interacao : ${interacoes}" class="row mt">
             <div class="col-lg-10">
                  <div   class="form-panel">
-                       <p>
-                           <img th:src="${'/assets/img/users/' + interacao.operador.foto}" class="img-circle" width="50" />
-                           <b th:text="${interacao.operador.nome}"> </b>
-                       </p>
+                       <div>
+	                       <p>
+	                           <img th:src="${'/assets/img/users/' + interacao.operador.foto}" class="img-circle" width="50" />
+	                           &nbsp; <b th:text="${interacao.operador.nome}"> </b>  -  <b th:text=" 'Criado em : &nbsp;' + ${#dates.format(interacao.data, 'dd/MM/yyyy  HH:mm')}" >  </b>
+	                       </p>
+                       </div>
+                       <br/> 
                        <div  th:utext="${interacao.comentario}"> 
                        </div>  
                  </div>

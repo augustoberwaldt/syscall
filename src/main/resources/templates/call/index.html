@@ -27,16 +27,26 @@
                                 <th  class="hidden-phone"><i class="fa fa-question-circle"></i> Código </th>
                                 <th  ><i class="fa fa-bookmark" ></i>  Assunto </th>
                                 <th><i class=" fa fa-edit"></i> Tipo</th>
-                               <th><i class=" fa fa-edit"></i> Status</th>
-                                <th></th>
+                                <th><i class=" fa fa-edit"></i> Status</th>
+                                
                             </tr>
                             </thead>
                             <tbody>
                              <tr th:each="chamado : ${chamados}">
                              		<td th:text="${chamado.id}" > </td>
                              		<td th:text="${chamado.assunto}" > </td>
-                             		<td th:text="${chamado.tipo}" > </td>
-                             		<td  > </td>
+                             		<td th:switch = "${chamado.tipo}" > 
+                             		     <span  th:case = "2" th:class="'label label-danger'"
+                                             th:text="'Erro'" >
+                                        </span> 
+                             		     <span  th:case = "0" th:class="'label label-info'"
+                                             th:text="'Dúvida'" >
+                                        </span> 
+                             		         
+                             		</td>
+                             		<td> </td>
+                             		<td> </td>
+                             		
                              		<td>
                                         <a id="editar_operador" th:href="@{/call/edit/} + ${chamado.id}" class="btn btn-primary btn-xs">
                                             <i class="fa fa-pencil"></i>
