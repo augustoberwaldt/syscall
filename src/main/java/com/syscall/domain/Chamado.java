@@ -80,7 +80,7 @@ public class Chamado {
 	}
 
 	public void setTipo(int tipo) {
-		tipo = tipo;
+		this.tipo = tipo;
 	}
 
 	public String getAssunto() {

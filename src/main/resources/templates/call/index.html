@@ -9,7 +9,21 @@
         <section class="wrapper site-min-height">
             <h3  th:text="#{call.title}" ><i class="fa fa-angle-right"></i>  </h3>
             <div class="row mt">
-           
+                <div class="col-lg-12">
+                    <div class="form-panel">
+                        <form  action="usuarios_busca_sem_resultado.html" class="form-inline" role="form">
+                            <div class="col-lg-5">
+                                <label class="sr-only" ></label>
+                                <input type="text" class="form-control"  name="nome" id="email" th:placeholder="#{customer.search.name}" />
+                            </div>
+
+                            <button id="buscar" type="submit" class="btn btn-info" th:text="#{btn.search}" ></button>
+
+                        </form>
+                    </div>
+              </div>
+             </div>
+            <div class="row mt">
 
                 <div class="col-lg-12">
                     <div  th:if="${message}"
@@ -27,6 +41,7 @@
                                 <th  class="hidden-phone"><i class="fa fa-question-circle"></i> Código </th>
                                 <th  ><i class="fa fa-bookmark" ></i>  Assunto </th>
                                 <th><i class=" fa fa-edit"></i> Tipo</th>
+                                <th> Cliente</th>
                                 <th><i class=" fa fa-edit"></i> Status</th>
                                 
                             </tr>
@@ -42,10 +57,14 @@
                              		     <span  th:case = "0" th:class="'label label-info'"
                                              th:text="'Dúvida'" >
                                         </span> 
+                             		    <span  th:case = "1" th:class="'label label-success'"
+                                             th:text="'Melhoria'" >
+                                        </span>
                              		         
                              		</td>
-                             		<td> </td>
-                             		<td> </td>
+                             		<td th:text="${chamado.cliente.nome}" > </td>
+                             		<td>ascascs </td>
+                             		
                              		
                              		<td>
                                         <a id="editar_operador" th:href="@{/call/edit/} + ${chamado.id}" class="btn btn-primary btn-xs">

@@ -92,6 +92,7 @@ public class ChamadoController {
         	);
         	
         	chamado.setStatus(1);
+        
         	
         	chamado.setCriador(operador);
         	
