@@ -55,13 +55,13 @@ Configutation:
           - ref: CONSOLE
           - ref: APPLICATION
       Logger:
-        - name: com.myco.myapp.Foo
+        - name: com.syscall
           additivity: false
           level: info
           AppenderRef:
             - ref: CONSOLE
             - ref: APPLICATION
-        - name: com.myco.myapp.Bar
+        - name: com.syscall
           additivity: false
           level: debug
           AppenderRef:

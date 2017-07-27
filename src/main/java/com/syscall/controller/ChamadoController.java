@@ -6,7 +6,8 @@ import java.util.Locale;
 
 import javax.validation.Valid;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.syscall.SyscallApplication;
 import com.syscall.config.Messages;
 import com.syscall.domain.Chamado;
 import com.syscall.domain.Cliente;
@@ -32,6 +34,8 @@ import com.syscall.service.OperadorService;
 @RequestMapping("/call")
 public class ChamadoController {
 
+	private static Logger logger = LoggerFactory.getLogger(ChamadoController.class);
+	
 	private final ChamadoService chamadoService;
 
 	private final ClienteService clienteService;
@@ -51,7 +55,6 @@ public class ChamadoController {
         this.clienteService =  clienteService;
         this.operadorService =  operadorService;
 
-        
         this.accountUserDetailsService =  accountUserDetailsService;
     }
 	
@@ -117,18 +120,28 @@ public class ChamadoController {
      @PostMapping("/saveInteration")
      public String saveInteration(@RequestParam("id") Long id,
     		                      @RequestParam("idOperador") Long idOperador,
-    		                      @RequestParam("comentario") String comentario) {
+    		                      @RequestParam("comentario") String comentario,
+    		                      @RequestParam("agente") Long agente
+    		                      ) {
     	 
+    
+    	 Operador operador = this.operadorService.get(idOperador);
+    	 Chamado chamado   = this.chamadoService.get(id);
+     	
+    	 logger.info("Test debug: {}" , agente);
     	 
-    	 Chamado chamado  = this.chamadoService.get(id);
-    			 
+    	 if (agente == 1) {
+    		 chamado.setResponsavel(operador);
+    	 }
+    	 
+		 
     	 Interacao interacao =  new Interacao();
     	 
     	 interacao.setData(new Date());
     	 
     	 interacao.setComentario(comentario);
     	 
-    	 interacao.setOperador(this.operadorService.get(idOperador));
+    	 interacao.setOperador(operador);
     	 
     	 chamado.getInteracoes().add(interacao);
     	

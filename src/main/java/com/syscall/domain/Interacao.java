@@ -2,6 +2,7 @@ package com.syscall.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,15 +16,13 @@ public class Interacao {
     @GeneratedValue
     private Long id;
    
-    
+    @Column(columnDefinition="LONGVARCHAR")
     private String comentario;      
     
     @ManyToOne
     private Operador operador;      
     
    
-
-
 	private Date data;
     
 	public Date getData() {
