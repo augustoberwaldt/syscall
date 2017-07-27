@@ -11,22 +11,22 @@
         <h3 th:text="#{call.title}"  ><i class="fa fa-angle-right"></i> </h3>
         <div class="row mt">
             <div class="col-lg-12">
-            <div class="col-lg-12 ds"> 
-	           <h3> Chamados</h3>
-	           <br/>           
-			   <div  th:each=" chamado : ${chamados}" class="desc">
-			    	<div class="thumb">
-			    		<span class="badge bg-theme"><i class="fa fa-phone"></i></span>
-			    	</div>
-			    	<div class="details">
-			    		<p>
-			    		   <a th:text="${chamado.id} + ' --- ' +  ${chamado.assunto}"  href="#"></a>
-			   		    </p>
-			    	</div>
-			    </div>
-             </div>
-        </div>
-       </div>
+	            <div class="col-lg-12 ds"> 
+		           <h3 th:text="'Chamados'" > </h3>
+		           <br/>           
+				   <div  th:each=" chamado : ${chamados}" class="desc">
+				    	<div class="thumb">
+				    		<span class="badge bg-theme"><i class="fa fa-phone"></i></span>
+				    	</div>
+				    	<div class="details">
+				    		<p>
+				    		  <a th:href="@{/call/view/} + ${chamado.id}" th:text="${chamado.id} + ' --- ' +  ${chamado.assunto}"  href="#"></a>
+				   		    </p>
+				    	</div>
+				    </div>
+	             </div>
+            </div>
+         </div>
      </section>
   </section>
 </body>
