@@ -24,10 +24,25 @@
                            Assunto :
                           <span th:text="${chamado.assunto}"> </span> 
                           <br/>
-                          Tipo :
-                          <br/>   
-                          Descrição :
-                          <span th:utext="${chamado.descricao}"> </span>
+                         
+                           <div th:switch = "${chamado.tipo}">
+                                  <br/>
+                                 Tipo : 
+                                 <span  th:case = "2" th:class="'label label-danger'"
+                                             th:text="'Erro'" >
+                                 </span> 
+                      		     <span  th:case = "0" th:class="'label label-info'"
+                                      th:text="'Dúvida'" >
+                                 </span> 
+                      		     <span  th:case = "1" th:class="'label label-success'"
+                                      th:text="'Melhoria'" >
+                                 </span>
+                           
+                           </div>
+                          <br/> 
+                          <div>  
+                            Descrição :  <p th:utext="${chamado.descricao}"> </p>
+                          </div>
                        </div>
                  </div>
             </div>
@@ -42,7 +57,7 @@
 	                           &nbsp; <b th:text="${interacao.operador.nome}"> </b>  -  <b th:text=" 'Criado em : &nbsp;' + ${#dates.format(interacao.data, 'dd/MM/yyyy  HH:mm')}" >  </b>
 	                       </p>
                        </div>
-                       <br/> 
+                       
                        <div  th:utext="${interacao.comentario}"> 
                        </div>  
                  </div>
