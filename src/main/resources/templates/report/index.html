@@ -5,10 +5,25 @@
       lang="en" layout:decorator="layouts/main">
 
   <body>
-      <!--main content start-->
-      <section id="main-content">
-
-      </section>
-
+     <!--main content start-->
+     <section layout:fragment="content"  id="main-content">
+        <section class="wrapper site-min-height"> 
+             <div id="morris">
+                 <div class="col-lg-6">
+                       <div class="content-panel">
+                           <h4><i class="fa fa-angle-right"></i> Gráfico de Tipos Chamados Abertos</h4>
+                           <div class="panel-body">
+                               <div id="hero-bar" class="graph"></div>
+                           </div>
+                       </div>
+                 </div>
+             </div>
+        </section>
+    </section>
+    <th:block layout:fragment="js-view">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="/webjars/morrisjs/0.4.3/morris.min.js"></script>
+        <script src="/assets/js/report/report.js"></script>
+    </th:block> 
   </body>
 </html>

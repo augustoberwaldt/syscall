@@ -5,6 +5,7 @@ import com.syscall.domain.Operador;
 import com.syscall.service.ClienteService;
 import com.syscall.service.OperadorService;
 import com.syscall.service.UploadService;
+import com.syscall.service.gutinho.GutinhoService;
 
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,6 +35,9 @@ public class OperadorController {
 
     private final UploadService uploadService;
 
+    private final GutinhoService gutinhoService;
+
+    
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(String.class, new StringMultipartFileEditor());
@@ -41,10 +45,13 @@ public class OperadorController {
 
     public OperadorController(OperadorService operadorService,
                               ClienteService clienteService,
-                              UploadService uploadService) {
+                              UploadService uploadService,
+                              GutinhoService gutinhoService                  
+    		) {
         this.operadorService =  operadorService;
         this.clienteService  =  clienteService;
         this.uploadService   =  uploadService;
+        this.gutinhoService   =  gutinhoService;
 
     }
 
