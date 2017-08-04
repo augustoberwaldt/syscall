@@ -52,7 +52,15 @@ public class Operador {
     @ManyToOne
     private Cliente cliente;
     
-    public Cliente getCliente() {
+    
+    
+    
+    
+    public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Cliente getCliente() {
 		return cliente;
 	}
 
@@ -60,8 +68,6 @@ public class Operador {
 		this.cliente = cliente;
 	}
 
-	
-    
     public boolean getAtivo() {
 		return ativo;
 	}

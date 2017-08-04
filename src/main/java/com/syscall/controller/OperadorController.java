@@ -5,7 +5,7 @@ import com.syscall.domain.Operador;
 import com.syscall.service.ClienteService;
 import com.syscall.service.OperadorService;
 import com.syscall.service.UploadService;
-import com.syscall.service.gutinho.GutinhoService;
+
 
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,8 +35,7 @@ public class OperadorController {
 
     private final UploadService uploadService;
 
-    private final GutinhoService gutinhoService;
-
+  
     
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -45,14 +44,13 @@ public class OperadorController {
 
     public OperadorController(OperadorService operadorService,
                               ClienteService clienteService,
-                              UploadService uploadService,
-                              GutinhoService gutinhoService                  
+                              UploadService uploadService
+                                   
     		) {
         this.operadorService =  operadorService;
         this.clienteService  =  clienteService;
         this.uploadService   =  uploadService;
-        this.gutinhoService   =  gutinhoService;
-
+       
     }
 
     @GetMapping("/")
@@ -99,9 +97,10 @@ public class OperadorController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestParam("foto") MultipartFile file, @Valid Operador operador, BindingResult bindingResult, Model model,
-                       RedirectAttributes redirectAttrs, Locale locale) {
-
+    public String save(@RequestParam("foto") MultipartFile file,
+    		@Valid Operador operador,
+    		BindingResult bindingResult, Model model,
+            RedirectAttributes redirectAttrs, Locale locale) {
 
         String url = "";
         if (operador.getId() == null) {
@@ -117,11 +116,8 @@ public class OperadorController {
     	    this.operadorService.save(operador);
     	    redirectAttrs.addFlashAttribute("message", Messages.get("messages.save", locale));
     	}
-
-
+      
         return url;
-
-
     }
 
     @RequestMapping("/edit/{id}")

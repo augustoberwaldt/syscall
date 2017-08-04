@@ -14,6 +14,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
@@ -34,6 +35,13 @@ public class MVCConf extends WebMvcConfigurerAdapter {
         super.addViewControllers(registry);
         registry.addViewController("/login").setViewName("auth/login");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        
+        registry.addRedirectViewController("/documentation/v2/api-docs", "/v2/api-docs").setKeepQueryParams(true);
+    	registry.addRedirectViewController("/documentation/swagger-resources/configuration/ui","/swagger-resources/configuration/ui");
+    	registry.addRedirectViewController("/documentation/swagger-resources/configuration/security","/swagger-resources/configuration/security");
+    	registry.addRedirectViewController("/documentation/swagger-resources", "/swagger-resources");
+    	registry.addRedirectViewController("/documentation", "/documentation/swagger-ui.html");
+        registry.addRedirectViewController("/documentation/", "/documentation/swagger-ui.html");
     }
 
     @Bean
@@ -45,7 +53,12 @@ public class MVCConf extends WebMvcConfigurerAdapter {
         return localeResolver;
 
     }
-
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+            .addResourceHandler("/documentation/**").addResourceLocations("classpath:/META-INF/resources/");
+    }
+   
     @Bean
     public MessageSource messageSource() {
         final ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -61,7 +74,6 @@ public class MVCConf extends WebMvcConfigurerAdapter {
         lci.setParamName("lang");
         return lci;
     }
-
 
 
 
