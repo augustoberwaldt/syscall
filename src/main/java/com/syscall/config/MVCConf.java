@@ -76,7 +76,6 @@ public class MVCConf extends WebMvcConfigurerAdapter {
     }
 
 
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
