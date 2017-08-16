@@ -27,43 +27,11 @@ spring:
       auth: true
       starttls.enable: true
       ssl.trust: smtp.gmail.com
-      
-Configutation:
-  status: warn
 
-  Appenders:
-    Console:
-      name: CONSOLE
-      target: SYSTEM_OUT
-      PatternLayout:
-        Pattern: "%d{ISO8601} %-5p [%c{3}] [%t] %m%n"
-    RollingFile:
-      - name: APPLICATION
-        fileName: ../logs/syscall.log
-        filePattern: "../logs/$${date:yyyy-MM}/syscall-%d{yyyy-MM-dd}-%i.log.gz"
-        PatternLayout:
-          Pattern: "%d{ISO8601} %-5p [%c{3}] [%t] %m%n"
-        policies:
-          TimeBasedTriggeringPolicy:
-            interval: 1
-            modulate: true
-
-  Loggers:
-      Root:
-        level: info
-        AppenderRef:
-          - ref: CONSOLE
-          - ref: APPLICATION
-      Logger:
-        - name: com.syscall
-          additivity: false
-          level: info
-          AppenderRef:
-            - ref: CONSOLE
-            - ref: APPLICATION
-        - name: com.syscall
-          additivity: false
-          level: debug
-          AppenderRef:
-            - ref: CONSOLE
-            - ref: APPLICATION
+logging:
+  file: logger.log   
+  level:
+    org:
+      springframework:
+        web: debug
+      hibernate: ERROR
